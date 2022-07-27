@@ -1,3 +1,13 @@
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  var modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    document.getElementById("myYoutubePlayer").src =
+      document.getElementById("myYoutubePlayer").src;
+    modal.style.display = "none";
+  }
+};
+
 /* global AFRAME */
 AFRAME.registerComponent("highlight", {
   init: function () {
@@ -6,8 +16,6 @@ AFRAME.registerComponent("highlight", {
     this.onClick = this.onClick.bind(this);
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
-    this.reset = this.reset.bind(this);
-    backgroundEl.addEventListener("click", this.reset);
     for (var i = 0; i < buttonEls.length; ++i) {
       buttonEls[i].addEventListener("mouseenter", this.onMouseEnter);
       buttonEls[i].addEventListener("mouseleave", this.onMouseLeave);
@@ -16,10 +24,9 @@ AFRAME.registerComponent("highlight", {
   },
 
   onClick: function (evt) {
-    evt.target.pause();
-    evt.target.setAttribute("material", "color", "#046de7");
-    this.el.addState("clicked");
-    evt.target.object3D.scale.set(1.2, 1.2, 1.2);
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    console.log(evt.currentTarget.id);
   },
 
   onMouseEnter: function (evt) {
@@ -38,14 +45,5 @@ AFRAME.registerComponent("highlight", {
       return;
     }
     evt.target.setAttribute("material", "color", "white");
-  },
-
-  reset: function () {
-    var buttonEls = this.buttonEls;
-    for (var i = 0; i < buttonEls.length; ++i) {
-      this.el.removeState("clicked");
-      buttonEls[i].play();
-      buttonEls[i].emit("mouseleave");
-    }
   },
 });

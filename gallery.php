@@ -1,3 +1,9 @@
+<?php
+  $data = file_get_contents('json/team.json');
+  $array = json_decode($data, true);
+  echo $array;
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,8 +12,8 @@
     <meta name="description" content="Gallery • A-Frame" />
     <script src="js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
-    <script src="js/highlight.js"></script>
-    <script src="js/info-panel.js"></script>
+    <script src="js/gallery.js"></script>
+    <link rel="stylesheet" href="css/teather.css" />
   </head>
   <body>
     <a-scene
@@ -17,49 +23,16 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
-        <!--
-          Image source: http://www.ghibli.jp/works/kazetachinu/#frame&gid=1&pid=1
-          Image author: Studio Ghibli
-        -->
-        <img
-          id="kazetachinu"
-          src="https://cdn.aframe.io/examples/ui/kazetachinu.jpg"
-          crossorigin="anonymous"
-        />
-        <img
-          id="kazetachinuPoster"
-          src="https://cdn.aframe.io/examples/ui/kazetachinuPoster.jpg"
-          crossorigin="anonymous"
-        />
-        <!--
-          Image source: http://www.ghibli.jp/works/ponyo/#frame&gid=1&pid=36
-          Image author: Studio Ghibli
-        -->
-        <img
-          id="ponyo"
-          src="https://cdn.aframe.io/examples/ui/ponyo.jpg"
-          crossorigin="anonymous"
-        />
-        <img
-          id="ponyoPoster"
-          src="https://cdn.aframe.io/examples/ui/ponyoPoster.jpg"
-          crossorigin="anonymous"
-        />
-        <!--
-          Image source: http://www.ghibli.jp/works/karigurashi/#frame&gid=1&pid=32
-          Image author: Studio Ghibli
-        -->
-        <img
-          id="karigurashi"
-          src="https://cdn.aframe.io/examples/ui/karigurashi.jpg"
-          crossorigin="anonymous"
-        />
-        <img
-          id="karigurashiPoster"
-          src="https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg"
-          crossorigin="anonymous"
-        />
+        <?php foreach ($array as $team) : ?>
+          <img
+            id="image-<?= $team["id"] ?>"
+            src=<?= $team["image"] ?>
+            crossorigin="anonymous"
+          />
+        <?php endforeach;?>
+
         <img id="floor" src="assets/floor.jpg" />
+        
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 1.401; height: 1.8345"
@@ -67,18 +40,13 @@
           animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
+        
         <a-mixin
           id="poster"
           geometry="primitive: plane; width: 1.34; height: 1.7756"
           material="color: white; shader: flat"
           material="shader: flat"
           position="0 0 0.005"
-        ></a-mixin>
-        <a-mixin
-          id="movieImage"
-          geometry="primitive: plane; width: 1.5; height: 0.81"
-          material="src: #ponyo; shader: flat; transparent: true"
-          position="0 0.495 0.002"
         ></a-mixin>
       </a-assets>
 
@@ -93,18 +61,12 @@
       >
       </a-entity>
 
+      <!-- Camera -->
       <a-entity
         position="0 1.6 0"
         camera
         look-controls="magicWindowTrackingEnabled: true; touchEnabled: true; mouseEnabled: true"
       >
-        <a-entity
-          id="fadeBackground"
-          geometry="primitive: sphere; radius: 2.5"
-          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6"
-          visible="false"
-        >
-        </a-entity>
       </a-entity>
 
       <!-- Hand controls -->
@@ -120,122 +82,28 @@
         line="color: #118A7E"
       ></a-entity>
 
-      <a-entity id="ui">
-        <!-- Poster menu -->
-        <a-entity id="menu" highlight>
+      <!-- Poster menu -->
+      <a-entity id="menu" highlight>
+        <?php foreach ($array as $team) : ?>
           <a-entity
-            id="karigurashiButton"
-            position="0 2 -3.9"
+            id="<?= $team["id"] ?>"
+            position= "<?= $team["position"] ?>"
+            rotation= "<?= $team["rotation"] ?>"
             mixin="frame"
             class="raycastable menu-button"
           >
             <a-entity
-              material="src: #karigurashiPoster;"
+              material="src: #image-<?= $team["id"] ?>;"
               mixin="poster"
             ></a-entity>
             <a-text
               font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-              value="Team A"
+              value="<?= $team["name"] ?>"
               position="0 -1.1 0.1"
               align="center"
             ></a-text>
           </a-entity>
-
-          <a-entity
-            id="ponyoButton"
-            position="3.9 2 0"
-            rotation="0 -90 0"
-            mixin="frame"
-            class="raycastable menu-button"
-          >
-            <a-entity material="src: #ponyoPoster" mixin="poster"></a-entity>
-            <a-text
-              font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-              value="Team B"
-              position="0 -1.1 0.1"
-              align="center"
-            ></a-text>
-          </a-entity>
-
-          <a-entity
-            id="teamCButton"
-            position="0 2 3.9"
-            rotation="0 180 0"
-            mixin="frame"
-            class="raycastable menu-button"
-          >
-            <a-entity
-              material="src: #karigurashiPoster;"
-              mixin="poster"
-            ></a-entity>
-            <a-text
-              font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-              value="Team C"
-              position="0 -1.1 0.1"
-              align="center"
-            ></a-text>
-          </a-entity>
-
-          <a-entity
-            id="kazetachinuButton"
-            position="-3.9 2 0"
-            rotation="0 90 0"
-            mixin="frame"
-            class="raycastable menu-button"
-          >
-            <a-entity
-              material="src: #kazetachinuPoster"
-              mixin="poster"
-            ></a-entity>
-            <a-text
-              font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-              value="Team D"
-              position="0 -1.1 0.1"
-              align="center"
-            ></a-text>
-          </a-entity>
-        </a-entity>
-
-        <!-- Info panel of the selected movie. -->
-        <a-entity
-          id="infoPanel"
-          position="0 2 -2"
-          info-panel
-          visible="false"
-          scale="0.001 0.001 0.001"
-          geometry="primitive: plane; width: 1.5; height: 1.8"
-          material="color: #333333; shader: flat; transparent: false"
-          class="raycastable"
-        >
-          <a-entity
-            id="ponyoMovieImage"
-            mixin="movieImage"
-            material="src: #ponyo"
-            visible="false"
-          ></a-entity>
-          <a-entity
-            id="kazetachinuMovieImage"
-            mixin="movieImage"
-            material="src: #kazetachinu"
-            visible="false"
-          ></a-entity>
-          <a-entity
-            id="karigurashiMovieImage"
-            mixin="movieImage"
-            material="src: #karigurashi"
-            visible="false"
-          ></a-entity>
-          <a-entity
-            id="movieTitle"
-            position="-0.68 -0.1 0"
-            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"
-          ></a-entity>
-          <a-entity
-            id="movieDescription"
-            position="-0.68 -0.2 0"
-            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          ></a-entity>
-        </a-entity>
+        <?php endforeach;?>
       </a-entity>
 
       <!-- Lighting -->
@@ -288,5 +156,19 @@
         color="#E1E0DE"
       ></a-plane>
     </a-scene>
+
+    <div id="myModal" class="modal">
+      <iframe 
+        id="myYoutubePlayer"
+        class="youtube-player"
+        width="900" 
+        height="506" 
+        src="https://www.youtube.com/embed/yAiCUXWT-QA"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        >
+      </iframe>
+    </div>
   </body>
 </html>

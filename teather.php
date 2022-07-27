@@ -1,7 +1,7 @@
 <?php
   $data = file_get_contents('json/video.json');
   $array = json_decode($data, true);
-  $link = "https://www.google.com";
+  $link = "https://www.youtube.com/embed/YegJp-E0j0g";
   if (array_key_exists('link', $array)){
     $link = $array['link'];
   }
@@ -86,13 +86,16 @@
       ></a-plane>
     </a-scene>
     <div id="myModal" class="modal">
-      <iframe
+      <iframe 
         id="myYoutubePlayer"
         class="youtube-player"
-        width="892"
-        height="502"
-        src=<?=$link?>
-      >
+        width="900" 
+        height="506" 
+        src=<?= $link ?> 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        >
       </iframe>
     </div>
   </body>
