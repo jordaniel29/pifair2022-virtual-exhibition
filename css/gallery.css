@@ -1,0 +1,73 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+}
+.background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+.modal {
+  position: absolute;
+  width: 480px;
+  top: 398px;
+  top: calc(50% - 199px);
+  left: calc(50% - 250px);
+  background-color: #292f51;
+  border-radius: 10px;
+  padding: 10px;
+}
+.header {
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.body {
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.youtube-player {
+  border-radius: 10px;
+}
+.footer {
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  width: 80px;
+  height: 40px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)) top/100% 800%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.vote {
+  background-color: #e38545;
+  color: white;
+}
+.unvote {
+  display: none;
+  background-color: #ea2c2c;
+  color: white;
+}
+.close {
+  background-color: white;
+  color: black;
+}
+.btn:hover {
+  background-position: bottom;
+}

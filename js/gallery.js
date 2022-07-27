@@ -1,10 +1,28 @@
+function vote() {
+  var voteBtn = document.getElementsByClassName("vote")[0];
+  var unvoteBtn = document.getElementsByClassName("unvote")[0];
+
+  if (voteBtn.style.display != "none") {
+    voteBtn.style.display = "none";
+    unvoteBtn.style.display = "block";
+  } else {
+    voteBtn.style.display = "block";
+    unvoteBtn.style.display = "none";
+  }
+}
+
+function closeModal() {
+  var modal = document.getElementById("myModal");
+  document.getElementById("myYoutubePlayer").src =
+    document.getElementById("myYoutubePlayer").src;
+  modal.style.display = "none";
+}
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
   var modal = document.getElementById("myModal");
   if (event.target == modal) {
-    document.getElementById("myYoutubePlayer").src =
-      document.getElementById("myYoutubePlayer").src;
-    modal.style.display = "none";
+    this.closeModal();
   }
 };
 

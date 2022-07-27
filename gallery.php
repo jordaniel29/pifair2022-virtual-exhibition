@@ -13,7 +13,7 @@
     <script src="js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
     <script src="js/gallery.js"></script>
-    <link rel="stylesheet" href="css/teather.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
   </head>
   <body>
     <a-scene
@@ -157,18 +157,30 @@
       ></a-plane>
     </a-scene>
 
-    <div id="myModal" class="modal">
-      <iframe 
-        id="myYoutubePlayer"
-        class="youtube-player"
-        width="900" 
-        height="506" 
-        src="https://www.youtube.com/embed/yAiCUXWT-QA"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        >
-      </iframe>
+    <div id="myModal" class="background">
+      <div class="modal">
+        <div class="header">
+          Team A
+        </div>
+        <div class="body">
+          <iframe 
+          id="myYoutubePlayer"
+          class="youtube-player"
+          width="480" 
+          height="270" 
+          src="https://www.youtube.com/embed/yAiCUXWT-QA"
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          >
+          </iframe>
+        </div>
+        <div class="footer">
+          <button class="btn close" onclick="closeModal()">Close</button>
+          <button class="btn vote" onclick="vote()">Vote</button>
+          <button class="btn unvote" onclick="vote()">UnVote</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
