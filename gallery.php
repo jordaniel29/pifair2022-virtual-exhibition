@@ -31,7 +31,9 @@
           />
         <?php endforeach;?>
 
-        <img id="floor" src="assets/floor.jpg" />
+        <img id="floor" src="assets/floor.jfif" />
+        <img id="wall" src="assets/pifair.png" />
+        <img id="wall2" src="assets/pifair2.png" />
         
         <a-mixin
           id="frame"
@@ -108,7 +110,7 @@
 
       <!-- Lighting -->
       <a-entity
-        light="type: point; intensity: 0.75; distance: 20; decay: 2"
+        light="type: point; intensity: 0.75; distance: 14; decay: 2"
         position="0 3.5 0"
       ></a-entity>
 
@@ -118,28 +120,28 @@
         rotation="0 0 0"
         width="8"
         height="4"
-        color="#E1E0DE"
+        src="#wall"
       ></a-plane>
       <a-plane
         position="4 2 0"
         rotation="0 -90 0"
         width="8"
         height="4"
-        color="#E1E0DE"
+        src="#wall2"
       ></a-plane>
       <a-plane
         position="0 2 4"
         rotation="0 180 0"
         width="8"
         height="4"
-        color="#E1E0DE"
+        src="#wall"
       ></a-plane>
       <a-plane
         position="-4 2 0"
         rotation="0 90 0"
         width="8"
         height="4"
-        color="#E1E0DE"
+        src="#wall2"
       ></a-plane>
       <a-plane
         position="0 0.1 0"
