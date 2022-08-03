@@ -1,4 +1,6 @@
 <?php
+  require_once "service/auth.php";
+
   $data = file_get_contents('json/video.json');
   $array = json_decode($data, true);
   $link = "https://www.youtube.com/embed/YegJp-E0j0g";
@@ -13,8 +15,8 @@
     <meta charset="utf-8" />
     <title>Teather</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="js/teather.js"></script>
-    <link rel="stylesheet" href="css/teather.css" />
+    <script src="../js/teather.js"></script>
+    <link rel="stylesheet" href="../css/teather.css" />
   </head>
   <body>
     <a-scene
@@ -26,7 +28,7 @@
     >
       <a-assets>
         <a-asset-item id="theater-obj" src="assets/theater.obj"></a-asset-item>
-        <img id="film" src="assets/play.webp" />
+        <img id="film" src="../assets/play.webp" />
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 8.1; height: 2.85"

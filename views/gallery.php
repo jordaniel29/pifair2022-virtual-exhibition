@@ -1,7 +1,9 @@
 <?php
+  require "service/auth.php";
+  require "service/auth-admin.php";
+
   $data = file_get_contents('json/team.json');
   $array = json_decode($data, true);
-  echo $array;
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +12,10 @@
     <meta charset="utf-8" />
     <title>Gallery</title>
     <meta name="description" content="Gallery • A-Frame" />
-    <script src="js/aframe-master.js"></script>
+    <script src="../js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
-    <script src="js/gallery.js"></script>
-    <link rel="stylesheet" href="css/gallery.css" />
+    <script src="../js/gallery.js"></script>
+    <link rel="stylesheet" href="../css/gallery.css" />
   </head>
   <body>
     <a-scene
@@ -31,9 +33,9 @@
           />
         <?php endforeach;?>
 
-        <img id="floor" src="assets/floor.jfif" />
-        <img id="wall" src="assets/pifair.png" />
-        <img id="wall2" src="assets/pifair2.png" />
+        <img id="floor" src="../assets/floor.jfif" />
+        <img id="wall" src="../assets/pifair.png" />
+        <img id="wall2" src="../assets/pifair2.png" />
         
         <a-mixin
           id="frame"

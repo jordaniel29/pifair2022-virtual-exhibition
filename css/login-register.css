@@ -1,15 +1,18 @@
 body {
-  color: #000;
+  color: #272e35;
   overflow-x: hidden;
-  height: 100vh;
+  background-color: #eeeff2;
   background-repeat: no-repeat;
 }
 
 .content {
   height: 100%;
+  background-color: #eeeff2;
 }
 
 .btn {
+  font-weight: 500;
+  border-radius: 5px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)) top/100% 800%;
 }
 
@@ -25,6 +28,7 @@ body {
 }
 
 .card2 {
+  background-color: #eeeff2;
   margin: auto 40px;
 }
 
@@ -34,13 +38,22 @@ body {
   margin-left: 10%;
 }
 
-.image {
+.image-login {
   height: 100%;
   max-height: 400px;
 }
 
+.image-container-register {
+  margin-top: 80px;
+}
+
+.image-register {
+  height: 100%;
+  max-height: 700px;
+}
+
 .border-line {
-  border-right: 1px solid #eeeeee;
+  border-right: 1px solid #272e35;
 }
 
 .google {
@@ -57,7 +70,7 @@ body {
 .line {
   height: 1px;
   width: 45%;
-  background-color: #e0e0e0;
+  background-color: #272e35;
   margin-top: 10px;
 }
 
@@ -71,31 +84,32 @@ body {
 }
 
 ::placeholder {
-  color: #bdbdbd;
+  color: #272e35;
   opacity: 1;
   font-weight: 300;
 }
 
 :-ms-input-placeholder {
-  color: #bdbdbd;
+  color: #272e35;
   font-weight: 300;
 }
 
 ::-ms-input-placeholder {
-  color: #bdbdbd;
+  color: #272e35;
   font-weight: 300;
 }
 
 input,
 textarea {
   padding: 10px 12px 10px 12px;
-  border: 1px solid lightgrey;
+  background-color: #e8e8e8;
+  border: 1px solid #272e35;
   border-radius: 2px;
   margin-bottom: 5px;
   margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
-  color: #2c3e50;
+  color: black;
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -125,13 +139,19 @@ a {
   background-color: #e07223;
   width: 100%;
   color: #fff;
-  border-radius: 2px;
 }
 
-.bg-orange {
-  position: fixed;
+.bg-orange-login {
+  position: absolute;
   bottom: 0px;
   width: 100%;
+  color: #fff;
+  background-color: #e07223;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-orange-register {
   color: #fff;
   background-color: #e07223;
   display: flex;
