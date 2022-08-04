@@ -13,7 +13,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Teather</title>
+    <title>Pifair 2022 - Teather</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="../js/teather.js"></script>
     <link rel="stylesheet" href="../css/teather.css" />
@@ -87,6 +87,9 @@
         color="#000000"
       ></a-plane>
     </a-scene>
+
+    <?php include 'navbar.php' ?>
+
     <div id="myModal" class="modal">
       <iframe 
         id="myYoutubePlayer"

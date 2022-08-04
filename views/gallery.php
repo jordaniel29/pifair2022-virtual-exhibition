@@ -1,6 +1,5 @@
 <?php
   require "service/auth.php";
-  require "service/auth-admin.php";
 
   $data = file_get_contents('json/team.json');
   $array = json_decode($data, true);
@@ -10,7 +9,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Gallery</title>
+    <title>Pifair 2022 - Gallery</title>
     <meta name="description" content="Gallery • A-Frame" />
     <script src="../js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
@@ -160,6 +159,8 @@
         color="#E1E0DE"
       ></a-plane>
     </a-scene>
+
+    <?php include 'navbar.php' ?>
 
     <div id="myModal" class="background">
       <div class="modal">

@@ -67,7 +67,7 @@ if(isset($_POST['register'])){
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Pifair 2022</title>
+    <title>Pifair 2022 - Register</title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link
       rel="stylesheet"

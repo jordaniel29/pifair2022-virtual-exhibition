@@ -1,0 +1,25 @@
+.navbar {
+  position: absolute;
+  left: 0;
+  top: calc(50% - 130px);
+  z-index: 9999;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ef8436;
+  border-radius: 0 20px 20px 0;
+}
+
+.icons-container {
+  margin: 10px 0;
+}
+
+.icons {
+  font-size: 24px;
+  color: white;
+}
+
+.icons:hover {
+  transition: 0.5s;
+  color: rgba(0, 0, 0, 0.3);
+}

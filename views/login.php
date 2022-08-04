@@ -27,14 +27,15 @@ if(isset($_POST['login'])){
     // verify password
     if(password_verify($password, $user["password"])){
         // set cookie
-        setcookie('token', md5($user["id"] . time()), time() +3600*24*7);
+        $token = md5($user["id"] . time());
+        setcookie('token', $token, time() +3600*24*7);
         
         // insert cookie in database
-        $sql = "UPDATE user SET token=:token WHERE email=:email";
+        $sql = "UPDATE user SET token=:token WHERE id=:id";
         $stmt = $db->prepare($sql);
         $params = array(
-          ":token" => $_COOKIE["token"],
-          ":email" => $email
+          ":token" => $token,
+          ":id" => $user["id"]
         );
         $stmt->execute($params);
 
@@ -60,7 +61,7 @@ if(isset($_POST['login'])){
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Pifair 2022</title>
+    <title>Pifair 2022 - Login</title>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link
       rel="stylesheet"
