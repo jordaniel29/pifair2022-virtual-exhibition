@@ -1,15 +1,28 @@
-function vote(teamId) {
+function vote(teamId, vote) {
   voteBtnId = "vote-" + teamId;
   var voteBtn = document.getElementsByClassName("vote");
   var unvoteBtn = document.getElementsByClassName("unvote");
 
-  for (var i = 0; i < voteBtn.length; ++i) {
-    if (voteBtn[i].id == voteBtnId) {
-      changeSelectedBtnDisplay(voteBtn[i], unvoteBtn[i]);
-    } else {
-      changeOthersBtnDisplay(voteBtn[i]);
-    }
-  }
+  console.log(vote);
+  $.ajax({
+    type: "post",
+    url: "../services/vote.php",
+    data: {
+      team_id: teamId,
+      vote: vote,
+    },
+    cache: false,
+    success: function () {
+      for (var i = 0; i < voteBtn.length; ++i) {
+        if (voteBtn[i].id == voteBtnId) {
+          changeSelectedBtnDisplay(voteBtn[i], unvoteBtn[i]);
+        } else {
+          changeOthersBtnDisplay(voteBtn[i]);
+        }
+      }
+    },
+  });
+  return false;
 }
 
 function changeSelectedBtnDisplay(voteBtn, unvoteBtn) {

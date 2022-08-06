@@ -217,11 +217,8 @@
           </div>
           <div class="footer">
             <button class="btn close" onclick="closeModal('<?= $team['id'] ?>')">Close</button>
-            <form action="services/vote.php" method="post" target="temp">
-              <input type="hidden" name="team-id" value="<?= $team['id'] ?>">    
-              <button id="vote-<?= $team['id'] ?>" name="vote" class="btn vote" style="<?= $vote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>')">Vote</button>
-              <button id="unvote-<?= $team['id'] ?>" name="unvote" class="btn unvote" style="<?= $unvote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>')">UnVote</button>
-            </form>
+            <button type="submit" id="vote-<?= $team['id'] ?>" name="vote" class="btn vote" style="<?= $vote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>', true)">Vote</button>
+            <button type="submit" id="unvote-<?= $team['id'] ?>" name="unvote" class="btn unvote" style="<?= $unvote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>', false)">UnVote</button>
           </div>
         </div>
       <?php endforeach;?>
