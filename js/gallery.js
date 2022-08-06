@@ -1,7 +1,18 @@
-function vote() {
-  var voteBtn = document.getElementsByClassName("vote")[0];
-  var unvoteBtn = document.getElementsByClassName("unvote")[0];
+function vote(teamId) {
+  voteBtnId = "vote-" + teamId;
+  var voteBtn = document.getElementsByClassName("vote");
+  var unvoteBtn = document.getElementsByClassName("unvote");
 
+  for (var i = 0; i < voteBtn.length; ++i) {
+    if (voteBtn[i].id == voteBtnId) {
+      changeSelectedBtnDisplay(voteBtn[i], unvoteBtn[i]);
+    } else {
+      changeOthersBtnDisplay(voteBtn[i]);
+    }
+  }
+}
+
+function changeSelectedBtnDisplay(voteBtn, unvoteBtn) {
   if (voteBtn.style.display != "none") {
     voteBtn.style.display = "none";
     unvoteBtn.style.display = "block";
@@ -11,10 +22,20 @@ function vote() {
   }
 }
 
-function closeModal() {
+function changeOthersBtnDisplay(voteBtn) {
+  if (voteBtn.style.display != "none") {
+    voteBtn.style.display = "none";
+  } else {
+    voteBtn.style.display = "block";
+  }
+}
+
+function closeModal(teamId) {
+  var ytId = "youtube-" + teamId;
+  document.getElementById(ytId).src = document.getElementById(ytId).src;
+  var teamModal = document.getElementById("modal-" + teamId);
+  teamModal.style.display = "none";
   var modal = document.getElementById("myModal");
-  document.getElementById("myYoutubePlayer").src =
-    document.getElementById("myYoutubePlayer").src;
   modal.style.display = "none";
 }
 
@@ -42,9 +63,11 @@ AFRAME.registerComponent("highlight", {
   },
 
   onClick: function (evt) {
+    var id = "modal-" + evt.currentTarget.id;
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
-    console.log(evt.currentTarget.id);
+    var teamModal = document.getElementById(id);
+    teamModal.style.display = "block";
   },
 
   onMouseEnter: function (evt) {

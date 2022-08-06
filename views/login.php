@@ -1,9 +1,10 @@
 <?php 
 
-require_once("service/config.php");
-require_once("service/auth-login.php");
+require_once("services/config.php");
+require_once("services/auth-login.php");
 
 $error = "";
+$email = "";
 
 if(isset($_POST['login'])){
 
@@ -103,6 +104,7 @@ if(isset($_POST['login'])){
                   type="text"
                   name="email"
                   placeholder="Email Address"
+                  value="<?= $email ?>"
                   required
                 />
               </div>

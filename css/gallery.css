@@ -15,6 +15,7 @@ body {
   background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
 .modal {
+  display: none;
   position: absolute;
   width: 480px;
   top: 398px;
@@ -60,7 +61,6 @@ body {
   color: white;
 }
 .unvote {
-  display: none;
   background-color: #ea2c2c;
   color: white;
 }

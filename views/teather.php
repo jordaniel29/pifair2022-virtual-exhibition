@@ -1,5 +1,5 @@
 <?php
-  require_once "service/auth.php";
+  require_once "services/auth.php";
 
   $data = file_get_contents('json/video.json');
   $array = json_decode($data, true);
@@ -13,7 +13,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Pifair 2022 - Teather</title>
+    <title>Pifair 2022</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="../js/teather.js"></script>
     <link rel="stylesheet" href="../css/teather.css" />

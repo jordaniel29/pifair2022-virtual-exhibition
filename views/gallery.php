@@ -1,24 +1,58 @@
 <?php
-  require "service/auth.php";
+  require_once "services/config.php";
+  require_once "services/auth.php";
 
+  // Get teams data
   $data = file_get_contents('json/team.json');
   $array = json_decode($data, true);
+
+  // Get user
+  $sql = "SELECT * FROM user WHERE token=:token";
+  $stmt = $db->prepare($sql);
+  $params = array(
+      ":token" => $_COOKIE["token"]
+  );
+  $stmt->execute($params);
+  $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  $vote_display = array();
+  $unvote_display = array();
+  if (!isset($user['team_id'])) {
+    foreach ($array as $team) {
+      $vote_display[$team['id']] = 'display: block';
+      $unvote_display[$team['id']] = 'display: none';
+    }
+  }
+  else{
+    foreach ($array as $team) {
+      if ($team['id'] == $user['team_id']) {
+        $vote_display[$team['id']] = 'display: none';
+        $unvote_display[$team['id']] = 'display: block';
+      }
+      else {
+        $vote_display[$team['id']] = 'display: none';
+        $unvote_display[$team['id']] = 'display: none';
+      }
+    }
+  }
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Pifair 2022 - Gallery</title>
+    <title>Pifair 2022</title>
     <meta name="description" content="Gallery • A-Frame" />
     <script src="../js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="../js/gallery.js"></script>
     <link rel="stylesheet" href="../css/gallery.css" />
   </head>
   <body>
     <a-scene
       background="color: #212"
+      vr-mode-ui="enabled: false"
       environment
       cursor="rayOrigin: mouse; fuse: false"
       raycaster="objects: .raycastable"
@@ -163,29 +197,36 @@
     <?php include 'navbar.php' ?>
 
     <div id="myModal" class="background">
-      <div class="modal">
-        <div class="header">
-          Team A
+      <?php foreach ($array as $team) : ?>
+        <div class="modal" id="modal-<?= $team["id"] ?>">
+          <div class="header">
+            <?= $team["name"] ?>
+          </div>
+          <div class="body">
+            <iframe 
+            id="youtube-<?= $team["id"] ?>"
+            class="youtube-player"
+            width="480" 
+            height="270" 
+            src="<?= $team["youtube"] ?>"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="footer">
+            <button class="btn close" onclick="closeModal('<?= $team['id'] ?>')">Close</button>
+            <form action="services/vote.php" method="post" target="temp">
+              <input type="hidden" name="team-id" value="<?= $team['id'] ?>">    
+              <button id="vote-<?= $team['id'] ?>" name="vote" class="btn vote" style="<?= $vote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>')">Vote</button>
+              <button id="unvote-<?= $team['id'] ?>" name="unvote" class="btn unvote" style="<?= $unvote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>')">UnVote</button>
+            </form>
+          </div>
         </div>
-        <div class="body">
-          <iframe 
-          id="myYoutubePlayer"
-          class="youtube-player"
-          width="480" 
-          height="270" 
-          src="https://www.youtube.com/embed/yAiCUXWT-QA"
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen
-          >
-          </iframe>
-        </div>
-        <div class="footer">
-          <button class="btn close" onclick="closeModal()">Close</button>
-          <button class="btn vote" onclick="vote()">Vote</button>
-          <button class="btn unvote" onclick="vote()">UnVote</button>
-        </div>
-      </div>
+      <?php endforeach;?>
     </div>
+
+    <iframe name="temp" style="display:none;"></iframe>
   </body>
 </html>

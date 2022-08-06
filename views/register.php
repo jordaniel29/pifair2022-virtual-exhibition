@@ -1,7 +1,7 @@
 <?php
 
-require_once("service/config.php");
-require_once("service/auth-login.php");
+require_once("services/config.php");
+require_once("services/auth-login.php");
 
 $name = "";
 $email = "";

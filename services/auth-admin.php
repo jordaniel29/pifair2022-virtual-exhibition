@@ -1,6 +1,6 @@
 <?php
 
-require_once("service/config.php");
+require_once("services/config.php");
 
 // Get user from database
 $sql = "SELECT * FROM user WHERE token=:token";
@@ -11,8 +11,6 @@ $params = array(
 $stmt->execute($params);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$admin = $user['is_admin'];
-$token = $_COOKIE["token"];
 // Check if user is not an admin
 if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
     header("Location: teather");

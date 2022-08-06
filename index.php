@@ -23,8 +23,8 @@
         case $me.'/teather' :
             require "views/teather.php";
             break;
-        case $me.'/service/logout' :
-            require "service/logout.php";
+        case $me.'/logout-service' :
+            require "services/logout.php";
         default:
             http_response_code(404);
             echo "404";
