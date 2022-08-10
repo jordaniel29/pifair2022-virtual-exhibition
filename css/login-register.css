@@ -13,6 +13,7 @@ body {
 .btn {
   font-weight: 500;
   border-radius: 5px;
+  border: none;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)) top/100% 800%;
 }
 

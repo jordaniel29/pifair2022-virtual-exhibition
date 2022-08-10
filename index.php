@@ -25,6 +25,13 @@
             break;
         case $me.'/logout-service' :
             require "services/logout.php";
+            break;
+        case $me.'/admin-auditorium' :
+            require "views/admin-auditorium.php";
+            break;
+        case $me.'/admin-team' :
+            require "views/admin-team.php";
+            break;
         default:
             http_response_code(404);
             echo "404";

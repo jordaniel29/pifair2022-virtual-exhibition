@@ -41,7 +41,12 @@ if(isset($_POST['login'])){
         $stmt->execute($params);
 
         // login successfull, redirect to teather 
-        header("Location: teather");
+        if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
+          header("Location: teather");
+        }
+        else {
+          header("Location: admin-team");
+        }
     }
     else {
       $error = "Incorrect email/password";
@@ -68,7 +73,7 @@ if(isset($_POST['login'])){
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="../css/login-register.css" />
+    <link rel="stylesheet" href="css/login-register.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -82,13 +87,13 @@ if(isset($_POST['login'])){
   <body>
     <div class="card card0 border-0 content">
       <div class="row">
-        <img src="../assets/logo.png" class="logo" />
+        <img src="assets/logo.png" class="logo" />
       </div>
       <div class="row d-flex">
         <div class="col-lg-6">
           <div class="card1 pb-5">
             <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-              <img src="../assets/stand.png" class="image-login" />
+              <img src="assets/stand.png" class="image-login" />
             </div>
           </div>
         </div>

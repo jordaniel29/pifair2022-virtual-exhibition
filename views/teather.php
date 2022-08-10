@@ -15,8 +15,8 @@
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="../js/teather.js"></script>
-    <link rel="stylesheet" href="../css/teather.css" />
+    <script src="js/teather.js"></script>
+    <link rel="stylesheet" href="css/teather.css" />
   </head>
   <body>
     <a-scene
@@ -28,7 +28,7 @@
     >
       <a-assets>
         <a-asset-item id="theater-obj" src="assets/theater.obj"></a-asset-item>
-        <img id="film" src="../assets/play.webp" />
+        <img id="film" src="assets/play.webp" />
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 8.1; height: 2.85"

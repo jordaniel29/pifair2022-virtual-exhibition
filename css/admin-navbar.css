@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  margin-left: 10%;
+}
+
+.menu-name {
+  text-decoration: none;
+  font-weight: 600;
+  color: #6e757c;
+  transition: color 0.2s;
+  margin: 0 10px;
+}
+
+.menu-name:hover {
+  color: black;
+}
+
+.logout {
+  color: #e07223;
+}
+
+.logout:hover {
+  color: #884413;
+}

@@ -6,7 +6,7 @@ function vote(teamId, vote) {
   console.log(vote);
   $.ajax({
     type: "post",
-    url: "../services/vote.php",
+    url: "services/vote.php",
     data: {
       team_id: teamId,
       vote: vote,

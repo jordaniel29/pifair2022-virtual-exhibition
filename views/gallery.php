@@ -3,8 +3,13 @@
   require_once "services/auth.php";
 
   // Get teams data
-  $data = file_get_contents('json/team.json');
-  $array = json_decode($data, true);
+  $sql = "SELECT * FROM team";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $teams = array(); //Create array to keep all results
+  while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
+    array_push($teams, $res);
+  };
 
   // Get user
   $sql = "SELECT * FROM user WHERE token=:token";
@@ -18,13 +23,13 @@
   $vote_display = array();
   $unvote_display = array();
   if (!isset($user['team_id'])) {
-    foreach ($array as $team) {
+    foreach ($teams as $team) {
       $vote_display[$team['id']] = 'display: block';
       $unvote_display[$team['id']] = 'display: none';
     }
   }
   else{
-    foreach ($array as $team) {
+    foreach ($teams as $team) {
       if ($team['id'] == $user['team_id']) {
         $vote_display[$team['id']] = 'display: none';
         $unvote_display[$team['id']] = 'display: block';
@@ -43,11 +48,11 @@
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
     <meta name="description" content="Gallery • A-Frame" />
-    <script src="../js/aframe-master.js"></script>
+    <script src="js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../js/gallery.js"></script>
-    <link rel="stylesheet" href="../css/gallery.css" />
+    <script src="js/gallery.js"></script>
+    <link rel="stylesheet" href="css/gallery.css" />
   </head>
   <body>
     <a-scene
@@ -58,10 +63,10 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
-        <?php foreach ($array as $team) : ?>
+        <?php foreach ($teams as $team) : ?>
           <img
             id="image-<?= $team["id"] ?>"
-            src=<?= $team["image"] ?>
+            src=<?= $team["team_image"] ?>
             crossorigin="anonymous"
           />
         <?php endforeach;?>
@@ -121,7 +126,7 @@
 
       <!-- Poster menu -->
       <a-entity id="menu" highlight>
-        <?php foreach ($array as $team) : ?>
+        <?php foreach ($teams as $team) : ?>
           <a-entity
             id="<?= $team["id"] ?>"
             position= "<?= $team["position"] ?>"
@@ -135,7 +140,7 @@
             ></a-entity>
             <a-text
               font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-              value="<?= $team["name"] ?>"
+              value="<?= $team["team_name"] ?>"
               position="0 -1.1 0.1"
               align="center"
             ></a-text>
@@ -197,10 +202,10 @@
     <?php include 'navbar.php' ?>
 
     <div id="myModal" class="background">
-      <?php foreach ($array as $team) : ?>
+      <?php foreach ($teams as $team) : ?>
         <div class="modal" id="modal-<?= $team["id"] ?>">
           <div class="header">
-            <?= $team["name"] ?>
+            <?= $team["team_name"] ?>
           </div>
           <div class="body">
             <iframe 
@@ -208,7 +213,7 @@
             class="youtube-player"
             width="480" 
             height="270" 
-            src="<?= $team["youtube"] ?>"
+            src="<?= $team["team_youtube"] ?>"
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen
