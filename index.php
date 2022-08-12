@@ -26,6 +26,9 @@
         case $me.'/logout-service' :
             require "services/logout.php";
             break;
+        case $me.'/admin' :
+            require "views/admin-home.php";
+            break;
         case $me.'/admin-auditorium' :
             require "views/admin-auditorium.php";
             break;

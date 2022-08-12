@@ -1,0 +1,56 @@
+body {
+  margin: 10px;
+  color: #272e35;
+  background-color: #eeeff2;
+  background-repeat: no-repeat;
+  font-family: "Roboto";
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #e07223;
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: bold;
+}
+
+.table-team {
+  max-width: 500px;
+  background-color: #e5e5e5;
+  margin-bottom: 64px;
+}
+
+.table-team-head {
+  background-color: #e07223;
+  color: white;
+}
+
+.user-title {
+  color: #337ab7;
+}
+
+.table-user {
+  background-color: #e5e5e5;
+}
+
+.table-user-head {
+  background-color: #337ab7;
+  color: white;
+}
+
+.input-sm {
+  background-color: #ececec;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #ececec;
+}
