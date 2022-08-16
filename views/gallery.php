@@ -211,8 +211,8 @@
             <iframe 
             id="youtube-<?= $team["id"] ?>"
             class="youtube-player"
-            width="480" 
-            height="270" 
+            width="900" 
+            height="506" 
             src="<?= $team["team_youtube"] ?>"
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

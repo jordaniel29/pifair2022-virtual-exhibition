@@ -23,8 +23,8 @@
         case $me.'/teather' :
             require "views/teather.php";
             break;
-        case $me.'/logout-service' :
-            require "services/logout.php";
+        case $me.'/add-university' :
+            require "views/add-university.php";
             break;
         case $me.'/admin' :
             require "views/admin-home.php";

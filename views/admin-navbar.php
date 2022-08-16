@@ -14,7 +14,7 @@ echo'
     <a href="admin-team" class="admin-menu-name">Teams</a>
     <a href="admin-auditorium" class="admin-menu-name">Auditorium</a>
     <a href="#" class="admin-menu-name">Sponsors</a>
-    <a href="logout-service" class="admin-menu-name logout">
+    <a href="services/logout.php" class="admin-menu-name logout">
       <span class="material-symbols-outlined icons" style="position: relative; top: 6px;"> logout </span>
       Logout
     </a>

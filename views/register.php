@@ -190,7 +190,7 @@ if(isset($_POST['register'])){
               </div>
               <a
                 class="btn btn-primary btn-lg btn-block google"
-                href="#!"
+                href="services/google-login.php"
                 role="button"
               >
                 <i class="fa fa-google icon"></i> Register with Google

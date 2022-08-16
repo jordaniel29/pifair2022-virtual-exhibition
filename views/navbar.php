@@ -18,7 +18,7 @@ echo '
   <a href="teather" class="icons-container">
     <span class="material-symbols-outlined icons"> live_tv </span>
   </a>
-  <a href="logout-service" class="icons-container">
+  <a href="services/logout.php" class="icons-container">
     <span class="material-symbols-outlined icons"> logout </span>
   </a>
 </div>

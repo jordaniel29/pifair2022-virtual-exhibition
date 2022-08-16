@@ -3,9 +3,11 @@
 require_once("services/config.php");
 require_once("services/auth-login.php");
 
+// Error handling
 $error = "";
 $email = "";
 
+// If login button is clicked
 if(isset($_POST['login'])){
 
   $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
@@ -13,8 +15,6 @@ if(isset($_POST['login'])){
 
   $sql = "SELECT * FROM user WHERE email=:email";
   $stmt = $db->prepare($sql);
-  
-  // bind parameter to query
   $params = array(
       ":email" => $email
   );
@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
     if(password_verify($password, $user["password"])){
         // set cookie
         $token = md5($user["id"] . time());
-        setcookie('token', $token, time() +3600*24*7);
+        setcookie('token', $token, time() +3600*24*7, '/');
         
         // insert cookie in database
         $sql = "UPDATE user SET token=:token WHERE id=:id";
@@ -42,10 +42,10 @@ if(isset($_POST['login'])){
 
         // login successfull, redirect to teather 
         if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
-          header("Location: teather");
+          header("Location: ../teather");
         }
         else {
-          header("Location: admin-team");
+          header("Location: ../admin-team");
         }
     }
     else {
@@ -148,7 +148,7 @@ if(isset($_POST['login'])){
               </div>
               <a
                 class="btn btn-primary btn-lg btn-block google"
-                href="#!"
+                href="services/google-login.php"
                 role="button"
               >
                 <i class="fa fa-google icon"></i> Login with Google
