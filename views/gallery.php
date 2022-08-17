@@ -150,7 +150,7 @@
 
       <!-- Lighting -->
       <a-entity
-        light="type: point; intensity: 0.75; distance: 14; decay: 2"
+        light="type: point; intensity: 0.75; distance: 13; decay: 2"
         position="0 3.5 0"
       ></a-entity>
 
@@ -195,7 +195,7 @@
         rotation="90 0 0"
         width="8"
         height="8"
-        color="#E1E0DE"
+        src="#floor"
       ></a-plane>
     </a-scene>
 
@@ -211,8 +211,8 @@
             <iframe 
             id="youtube-<?= $team["id"] ?>"
             class="youtube-player"
-            width="900" 
-            height="506" 
+            width="750" 
+            height="422" 
             src="<?= $team["team_youtube"] ?>"
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

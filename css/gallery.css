@@ -17,9 +17,9 @@ body {
 .modal {
   display: none;
   position: absolute;
-  width: 910px;
-  top: calc(50% - 317px);
-  left: calc(50% - 460px);
+  width: 760px;
+  top: calc(50% - 283px);
+  left: calc(50% - 390px);
   background-color: #292f51;
   border-radius: 10px;
   padding: 10px;
