@@ -46,7 +46,7 @@
             <button name="save" type="submit" class="btn btn-orange">Save</button>
           </div>
           <div class="footer-container">
-            <a href="#" class="btn btn-gray">Instructions</a>
+            <a href="admin-instructions" class="btn btn-gray">Instructions</a>
           </div>
         </div>
       </form>

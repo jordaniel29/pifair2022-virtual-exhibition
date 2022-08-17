@@ -40,12 +40,12 @@ if(isset($_POST['login'])){
         );
         $stmt->execute($params);
 
-        // login successfull, redirect to teather 
+        // login successfull, redirect to lobby
         if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
-          header("Location: ../teather");
+          header("Location: ../lobby");
         }
         else {
-          header("Location: ../admin-team");
+          header("Location: ../admin");
         }
     }
     else {
@@ -78,11 +78,6 @@ if(isset($_POST['login'])){
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      body {
-        height: 100vh;
-      }
-    </style>
   </head>
   <body>
     <div class="card card0 border-0 content">
@@ -157,7 +152,7 @@ if(isset($_POST['login'])){
           </form>
         </div>
       </div>
-      <div class="bg-orange-login py-4">
+      <div class="bg-orange-register py-4">
         <div class="row px-3">
           <small class="ml-4 ml-sm-5 mb-2"
             >Copyright &copy; 2022. All rights reserved.</small

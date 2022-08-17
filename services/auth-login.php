@@ -1,6 +1,6 @@
 <?php
 
 if (isset($_COOKIE['token'])) {
-    header("Location: teather");
+    header("Location: lobby");
     exit();
 }

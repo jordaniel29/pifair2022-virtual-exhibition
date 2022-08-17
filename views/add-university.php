@@ -11,7 +11,7 @@
     );
     $stmt->execute($params);
 
-    header("Location: teather");
+    header("Location: lobby");
   }
 ?>
 
@@ -29,24 +29,26 @@
     <link rel="stylesheet" href="css/add-university.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>University/Institution</h1>
-      <form method="post" action="">
-        <div class="content">
-          <input
-            class="input"
-            type="text"
-            name="university"
-            placeholder="University/Institution"
-            required
-          />
-        </div>
-        <div class="footer">
-          <div class="footer-container">
-            <button name="save" type="submit" class="btn btn-orange">Save</button>
+    <div id="modal" class="background">
+      <div class="container">
+        <h1>University/Institution</h1>
+        <form method="post" action="">
+          <div class="content">
+            <input
+              class="input"
+              type="text"
+              name="university"
+              placeholder="University/Institution"
+              required
+            />
           </div>
-        </div>
-      </form>
+          <div class="footer">
+            <div class="footer-container">
+              <button name="save" type="submit" class="btn btn-orange">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

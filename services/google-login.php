@@ -50,12 +50,12 @@ if (isset($_GET['code'])){
     );
     $stmt->execute($params);
 
-    // Login successfull, redirect to teather 
+    // Login successfull, redirect to lobby
     if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
-      header("Location: ../teather");
+      header("Location: ../lobby");
     }
     else {
-      header("Location: ../admin-team");
+      header("Location: ../admin");
     }
   }
   else {

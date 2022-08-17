@@ -1,18 +1,29 @@
-body {
-  color: #272e35;
-  background-color: #eeeff2;
-  background-repeat: no-repeat;
-  font-family: "Roboto";
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #292f51;
 }
 
 .container {
-  width: 80%;
-  margin: 0 auto;
+  position: absolute;
+  width: 736px;
+  height: 236px;
+  top: calc(50% - 150px);
+  left: calc(50% - 400px);
   align-items: center;
+  background-color: #eeeff2;
+  padding: 32px;
+  border-radius: 12px;
+  font-family: "Roboto";
+  color: #272e35;
 }
 
 h1 {
-  margin-top: 128px;
   color: #e07223;
   text-align: center;
   margin-bottom: 32px;

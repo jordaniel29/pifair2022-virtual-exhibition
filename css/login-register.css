@@ -3,6 +3,7 @@ body {
   overflow-x: hidden;
   background-color: #eeeff2;
   background-repeat: no-repeat;
+  height: 100%;
 }
 
 .content {

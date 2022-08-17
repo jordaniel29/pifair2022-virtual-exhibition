@@ -78,11 +78,6 @@ if(isset($_POST['register'])){
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      body {
-        height: 100%;
-      }
-    </style>
   </head>
   <body>
     <div class="card card0 border-0 content">
