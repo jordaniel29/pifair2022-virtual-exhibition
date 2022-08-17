@@ -18,7 +18,10 @@
             require "views/register.php";
             break;
         case $me.'/lobby' :
-            require "views/gallery.php";
+            require "views/auditorium2.php";
+            break;
+        case $me.'/lobby2' :
+            require "views/auditorium3.php";
             break;
         case $me.'/gallery' :
             require "views/gallery.php";
