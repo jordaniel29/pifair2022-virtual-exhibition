@@ -6,7 +6,7 @@ function vote(teamId, vote) {
   console.log(vote);
   $.ajax({
     type: "post",
-    url: "../services/vote.php",
+    url: "services/vote.php",
     data: {
       team_id: teamId,
       vote: vote,
@@ -51,14 +51,6 @@ function closeModal(teamId) {
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
 }
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  var modal = document.getElementById("myModal");
-  if (event.target == modal) {
-    this.closeModal();
-  }
-};
 
 /* global AFRAME */
 AFRAME.registerComponent("highlight", {

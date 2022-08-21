@@ -13,6 +13,6 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Check if user is not an admin
 if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
-    header("Location: teather");
+    header("Location: lobby");
     exit();
 }

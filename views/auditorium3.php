@@ -14,37 +14,34 @@
   <head>
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="../js/teather.js"></script>
-    <link rel="stylesheet" href="../css/teather.css" />
+    <script src="js/aframe-master.js"></script>
+    <!-- <script src="js/auditorium.js"></script> -->
+    <script src="js/auditorium2.js"></script>
+    <link rel="stylesheet" href="css/auditorium.css" />
   </head>
   <body>
     <a-scene
-      background="color: #212"
       vr-mode-ui="enabled: false"
       environment
       cursor="rayOrigin: mouse; fuse: false"
       raycaster="objects: .raycastable"
     >
       <a-assets>
-        <a-asset-item id="theater-obj" src="assets/theater.obj"></a-asset-item>
-        <img id="film" src="../assets/play.webp" />
-        <a-mixin
+        <img id="teather" src="assets/auditorium2.jpg" />
+        <img id="film" src="assets/play.webp" />
+        <!-- <a-mixin
           id="frame"
-          geometry="primitive: plane; width: 8.1; height: 2.85"
+          geometry="primitive: plane; width: 7; height: 2.8"
           material="color: black; shader: flat"
           animation__scale="property: scale; to: 1.03 1.03 1.03; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
         <a-mixin
           id="poster"
-          geometry="primitive: plane; width: 8; height: 2.75"
+          geometry="primitive: plane; width: 6.9; height: 2.7"
           position="-1 1.6 -4.8"
-        ></a-mixin>
+        ></a-mixin> -->
       </a-assets>
-
-      <!-- Sky -->
-      <a-sky color="#400000"></a-sky>
 
       <!-- Camera -->
       <a-entity
@@ -54,40 +51,40 @@
       >
       </a-entity>
 
-      <a-entity
-        obj-model="obj: #theater-obj;"
-        material="color:#400000"
-        position="-1 -0.25 0"
-        scale="0.025 0.025 0.025"
-      ></a-entity>
+      <a-sky src="#teather" rotation="0 -90 0"></a-sky>
 
       <a-entity id="menu" video>
+        <a-curvedimage
+          src="#film"
+          radius="6"
+          height="2.75"
+          position="-1.3 2.2 0"
+          theta-length="59"
+          rotation="0 150 0"
+          animation__scale="property: position; to: -1.3 2.2 0.5; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: position; to: -1.3 2.2 0; dur: 200; startEvents: mouseleave"
+          class="raycastable menu-button"
+        >
+        </a-curvedimage>
+      </a-entity>
+
+      <!-- <a-entity id="menu" video>
         <a-entity
           id="videoButton"
-          position="-1 1.6 -4.8"
+          position="-1 1.8 -4.8"
           mixin="frame"
           class="raycastable menu-button"
         >
           <a-entity
             id="video-screen"
             position="0 0 0.001"
-            geometry="primitive:plane; width:8; height:2.75;"
             material="shader:flat; side:double; transparent:true; src:#film"
             mixin="poster"
           ></a-entity>
         </a-entity>
-      </a-entity>
+      </a-entity> -->
 
-      <!-- Walls -->
-      <a-plane
-        position="-1 3 0"
-        rotation="90 0 0"
-        width="8.5"
-        height="8.5"
-        color="#000000"
-      ></a-plane>
     </a-scene>
-
     <?php include 'navbar.php' ?>
 
     <div id="myModal" class="modal">

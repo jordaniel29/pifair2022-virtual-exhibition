@@ -3,9 +3,11 @@
 require_once("services/config.php");
 require_once("services/auth-login.php");
 
+// Error handling
 $error = "";
 $email = "";
 
+// If login button is clicked
 if(isset($_POST['login'])){
 
   $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
@@ -13,8 +15,6 @@ if(isset($_POST['login'])){
 
   $sql = "SELECT * FROM user WHERE email=:email";
   $stmt = $db->prepare($sql);
-  
-  // bind parameter to query
   $params = array(
       ":email" => $email
   );
@@ -29,7 +29,7 @@ if(isset($_POST['login'])){
     if(password_verify($password, $user["password"])){
         // set cookie
         $token = md5($user["id"] . time());
-        setcookie('token', $token, time() +3600*24*7);
+        setcookie('token', $token, time() +3600*24*7, '/');
         
         // insert cookie in database
         $sql = "UPDATE user SET token=:token WHERE id=:id";
@@ -40,8 +40,13 @@ if(isset($_POST['login'])){
         );
         $stmt->execute($params);
 
-        // login successfull, redirect to teather 
-        header("Location: teather");
+        // login successfull, redirect to lobby
+        if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
+          header("Location: ../lobby");
+        }
+        else {
+          header("Location: ../admin");
+        }
     }
     else {
       $error = "Incorrect email/password";
@@ -68,27 +73,22 @@ if(isset($_POST['login'])){
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="../css/login-register.css" />
+    <link rel="stylesheet" href="css/login-register.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      body {
-        height: 100vh;
-      }
-    </style>
   </head>
   <body>
     <div class="card card0 border-0 content">
       <div class="row">
-        <img src="../assets/logo.png" class="logo" />
+        <img src="assets/logo.png" class="logo" />
       </div>
       <div class="row d-flex">
         <div class="col-lg-6">
           <div class="card1 pb-5">
             <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-              <img src="../assets/stand.png" class="image-login" />
+              <img src="assets/stand.png" class="image-login" />
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ if(isset($_POST['login'])){
               </div>
               <a
                 class="btn btn-primary btn-lg btn-block google"
-                href="#!"
+                href="services/google-login.php"
                 role="button"
               >
                 <i class="fa fa-google icon"></i> Login with Google
@@ -152,7 +152,7 @@ if(isset($_POST['login'])){
           </form>
         </div>
       </div>
-      <div class="bg-orange-login py-4">
+      <div class="bg-orange-register py-4">
         <div class="row px-3">
           <small class="ml-4 ml-sm-5 mb-2"
             >Copyright &copy; 2022. All rights reserved.</small

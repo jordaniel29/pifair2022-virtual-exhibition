@@ -2,7 +2,7 @@
 
 if (isset($_COOKIE['token'])) {
     unset($_COOKIE['token']);
-    setcookie('token', null, -1);
+    setcookie('token', null, -1, '/');
     header("Location: ../login");
     exit();
 }

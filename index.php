@@ -17,14 +17,33 @@
         case $me.'/register' :
             require "views/register.php";
             break;
+        case $me.'/lobby' :
+            require "views/auditorium2.php";
+            break;
+        case $me.'/lobby2' :
+            require "views/auditorium3.php";
+            break;
         case $me.'/gallery' :
             require "views/gallery.php";
             break;
-        case $me.'/teather' :
-            require "views/teather.php";
+        case $me.'/auditorium' :
+            require "views/auditorium.php";
             break;
-        case $me.'/logout-service' :
-            require "services/logout.php";
+        case $me.'/add-university' :
+            require "views/add-university.php";
+            break;
+        case $me.'/admin' :
+            require "views/admin-home.php";
+            break;
+        case $me.'/admin-auditorium' :
+            require "views/admin-auditorium.php";
+            break;
+        case $me.'/admin-team' :
+            require "views/admin-team.php";
+            break;
+        case $me.'/admin-instructions' :
+            require "views/admin-instructions.php";
+            break;
         default:
             http_response_code(404);
             echo "404";

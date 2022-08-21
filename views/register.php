@@ -45,7 +45,7 @@ if(isset($_POST['register'])){
     try {
       $saved = $stmt->execute($params);
       if ($saved) {
-        header("Location: login.php");
+        header("Location: login");
       }
       else {
         $error = "Account failed to register";
@@ -73,21 +73,16 @@ if(isset($_POST['register'])){
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="../css/login-register.css" />
+    <link rel="stylesheet" href="css/login-register.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      body {
-        height: 100%;
-      }
-    </style>
   </head>
   <body>
     <div class="card card0 border-0 content">
       <div class="row">
-        <img src="../assets/logo.png" class="logo" />
+        <img src="assets/logo.png" class="logo" />
       </div>
       <div class="row d-flex">
         <div class="col-lg-6">
@@ -95,7 +90,7 @@ if(isset($_POST['register'])){
             <div
               class="row px-3 justify-content-center border-line image-container-register"
             >
-              <img src="../assets/stand.png" class="image-register" />
+              <img src="assets/stand.png" class="image-register" />
             </div>
           </div>
         </div>
@@ -190,7 +185,7 @@ if(isset($_POST['register'])){
               </div>
               <a
                 class="btn btn-primary btn-lg btn-block google"
-                href="#!"
+                href="services/google-login.php"
                 role="button"
               >
                 <i class="fa fa-google icon"></i> Register with Google

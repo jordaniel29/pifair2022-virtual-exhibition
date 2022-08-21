@@ -1,0 +1,31 @@
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  margin-left: 10%;
+}
+
+.admin-menu-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6e757c;
+  transition: color 0.2s;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.admin-menu-name:hover {
+  color: black;
+}
+
+.logout {
+  color: #e07223;
+}
+
+.logout:hover {
+  color: #884413;
+}
