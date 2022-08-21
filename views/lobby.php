@@ -7,8 +7,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- <!-- <script src="js/teather.js"></script> -->
     <script src="js/hall.js"></script> -->
     <link rel="stylesheet" href="css/teather.css" />
   </head>

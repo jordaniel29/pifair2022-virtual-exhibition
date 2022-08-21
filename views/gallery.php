@@ -47,7 +47,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
-    <meta name="description" content="Gallery • A-Frame" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
