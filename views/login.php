@@ -42,10 +42,10 @@ if(isset($_POST['login'])){
 
         // login successfull, redirect to lobby
         if (!isset($user["is_admin"]) || $user["is_admin"] != 1) {
-          header("Location: ../lobby");
+          header("Location: lobby");
         }
         else {
-          header("Location: ../admin");
+          header("Location: admin");
         }
     }
     else {

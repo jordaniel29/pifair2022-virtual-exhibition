@@ -71,9 +71,9 @@
           />
         <?php endforeach;?>
 
-        <img id="floor" src="../assets/floor.jfif" />
-        <img id="wall" src="../assets/pifair.png" />
-        <img id="wall2" src="../assets/pifair2.png" />
+        <img id="floor" src="assets/floor.jfif" />
+        <img id="wall" src="assets/pifair.png" />
+        <img id="wall2" src="assets/pifair2.png" />
         
         <a-mixin
           id="frame"

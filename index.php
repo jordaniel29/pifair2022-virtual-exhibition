@@ -1,7 +1,7 @@
 <?php
 
     // Define your location project directory in htdocs (EX THE FULL PATH: D:\xampp\htdocs\x-kang\simple-routing-with-php)
-    $project_location = "";
+    $project_location = "/pifair2022-virtual-exhibition";
     $me = $project_location;
 
     // For get URL PATH
@@ -25,6 +25,9 @@
             break;
         case $me.'/auditorium' :
             require "views/auditorium.php";
+            break;
+        case $me.'/hall' :
+            require "views/hall.php";
             break;
         case $me.'/add-university' :
             require "views/add-university.php";
