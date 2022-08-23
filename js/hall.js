@@ -15,7 +15,9 @@ window.onclick = function (event) {
   }
 };
 
-/* global AFRAME */
+/* highliht AFRAME component */
+// TODO nama komponennya harus diganti dari highlight ke highlight-hall mungkin
+// Soalnya dia applynya ke global jadi takutnya ngerusak komponen highlight yang lain
 AFRAME.registerComponent("highlight", {
   init: function () {
     var buttonEls = (this.buttonEls = this.el.querySelectorAll(".menu-button"));

@@ -13,10 +13,36 @@
     <title>Pifair 2022</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="js/hall.js"></script> -->
-    <link rel="stylesheet" href="css/teather.css" />
+    <script src="js/hall.js"></script>
   </head>
   <body>
+    <script>
+      /* limit-distance for camera component */
+      AFRAME.registerComponent("limit-my-distance-hall", {
+        init: function () {
+          // do nothing
+        },
+
+        tick: function () {
+          // limit Z
+          if (this.el.object3D.position.z > 8.5) {
+            this.el.object3D.position.z = 8.5;
+          }
+          if (this.el.object3D.position.z < -8.5) {
+            this.el.object3D.position.z = -8.5;
+          }
+
+          // limit X
+          if (this.el.object3D.position.x > 8.5) {
+            this.el.object3D.position.x = 8.5;
+          }
+          if (this.el.object3D.position.x < -8.5) {
+            this.el.object3D.position.x = -8.5;
+          }
+        },
+      });
+    </script>
+
     <a-scene
       background="color: #212"
       vr-mode-ui="enabled: false"
@@ -49,6 +75,7 @@
       <a-entity
         position="-1 1.6 -0.5"
         camera
+        limit-my-distance-hall
         look-controls="magicWindowTrackingEnabled: true; touchEnabled: true; mouseEnabled: true"
         wasd-controls="acceleration:100"
       >
