@@ -53,10 +53,9 @@ function closeModal(teamId) {
 }
 
 /* global AFRAME */
-AFRAME.registerComponent("highlight", {
+AFRAME.registerComponent("highlight-exhibition", {
   init: function () {
     var buttonEls = (this.buttonEls = this.el.querySelectorAll(".menu-button"));
-    var backgroundEl = document.querySelector("#background");
     this.onClick = this.onClick.bind(this);
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);

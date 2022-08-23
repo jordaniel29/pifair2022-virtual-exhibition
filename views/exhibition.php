@@ -51,8 +51,8 @@
     <script src="js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/gallery.js"></script>
-    <link rel="stylesheet" href="css/gallery.css" />
+    <script src="js/exhibition.js"></script>
+    <link rel="stylesheet" href="css/exhibition.css" />
   </head>
   <body>
     <a-scene
@@ -125,7 +125,7 @@
       ></a-entity>
 
       <!-- Poster menu -->
-      <a-entity id="menu" highlight>
+      <a-entity id="menu" highlight-exhibition>
         <?php foreach ($teams as $team) : ?>
           <a-entity
             id="<?= $team["id"] ?>"

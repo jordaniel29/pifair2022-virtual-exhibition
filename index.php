@@ -20,8 +20,8 @@
         case $me.'/lobby' :
             require "views/auditorium.php";
             break;
-        case $me.'/gallery' :
-            require "views/gallery.php";
+        case $me.'/exhibition' :
+            require "views/exhibition.php";
             break;
         case $me.'/auditorium' :
             require "views/auditorium.php";
