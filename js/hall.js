@@ -16,9 +16,7 @@ window.onclick = function (event) {
 };
 
 /* highliht AFRAME component */
-// TODO nama komponennya harus diganti dari highlight ke highlight-hall mungkin
-// Soalnya dia applynya ke global jadi takutnya ngerusak komponen highlight yang lain
-AFRAME.registerComponent("highlight", {
+AFRAME.registerComponent("highlight-hall", {
   init: function () {
     var buttonEls = (this.buttonEls = this.el.querySelectorAll(".menu-button"));
     var backgroundEl = document.querySelector("#background");
@@ -56,5 +54,30 @@ AFRAME.registerComponent("highlight", {
       return;
     }
     evt.target.setAttribute("material", "color", "white");
+  },
+});
+
+/* limit-distance for camera component */
+AFRAME.registerComponent("limit-my-distance-hall", {
+  init: function () {
+    // do nothing
+  },
+
+  tick: function () {
+    // limit Z
+    if (this.el.object3D.position.z > 8.5) {
+      this.el.object3D.position.z = 8.5;
+    }
+    if (this.el.object3D.position.z < -8.5) {
+      this.el.object3D.position.z = -8.5;
+    }
+
+    // limit X
+    if (this.el.object3D.position.x > 8.5) {
+      this.el.object3D.position.x = 8.5;
+    }
+    if (this.el.object3D.position.x < -8.5) {
+      this.el.object3D.position.x = -8.5;
+    }
   },
 });

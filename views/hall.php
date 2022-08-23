@@ -16,32 +16,6 @@
     <script src="js/hall.js"></script>
   </head>
   <body>
-    <script>
-      /* limit-distance for camera component */
-      AFRAME.registerComponent("limit-my-distance-hall", {
-        init: function () {
-          // do nothing
-        },
-
-        tick: function () {
-          // limit Z
-          if (this.el.object3D.position.z > 8.5) {
-            this.el.object3D.position.z = 8.5;
-          }
-          if (this.el.object3D.position.z < -8.5) {
-            this.el.object3D.position.z = -8.5;
-          }
-
-          // limit X
-          if (this.el.object3D.position.x > 8.5) {
-            this.el.object3D.position.x = 8.5;
-          }
-          if (this.el.object3D.position.x < -8.5) {
-            this.el.object3D.position.x = -8.5;
-          }
-        },
-      });
-    </script>
 
     <a-scene
       background="color: #212"
@@ -88,7 +62,7 @@
       ></a-entity>
 
       <!-- Poster menu -->
-      <a-entity id="menu" highlight>
+      <a-entity id="menu" highlight-hall>
         <?php foreach ($array as $sponsor) : ?>
           <a-entity
             id="<?= $sponsor["id"] ?>"
