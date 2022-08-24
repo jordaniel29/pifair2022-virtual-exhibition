@@ -9,7 +9,7 @@ echo '
   <a href="lobby" class="icons-container">
     <span class="material-symbols-outlined icons"> home </span>
   </a>
-  <a href="#" class="icons-container">
+  <a href="hall" class="icons-container">
     <span class="material-symbols-outlined icons"> museum </span>
   </a>
   <a href="gallery" class="icons-container">

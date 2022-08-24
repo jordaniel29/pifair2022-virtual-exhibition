@@ -7,7 +7,7 @@ echo'
 />
 <div class="admin-navbar">
   <div class="admin-image-row">
-    <a href="admin"><img src="../assets/logo.png" class="logo" /></a>
+    <a href="admin"><img src="assets/logo.png" class="logo" /></a>
   </div>
   <div class="admin-menu-row">
     <a href="admin" class="admin-menu-name">Home</a>

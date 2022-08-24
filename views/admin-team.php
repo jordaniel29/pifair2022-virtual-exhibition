@@ -23,7 +23,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/admin-team.css" />
+    <link rel="stylesheet" href="css/admin-team.css" />
   </head>
   <body>
     <div class="container">
