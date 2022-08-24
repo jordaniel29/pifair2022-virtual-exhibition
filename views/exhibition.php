@@ -46,7 +46,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Pifair 2022</title>
+    <title>PI FAIR 2022 - Energize In Transition</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
@@ -223,7 +223,7 @@
           <div class="footer">
             <button class="btn close" onclick="closeModal('<?= $team['id'] ?>')">Close</button>
             <button type="submit" id="vote-<?= $team['id'] ?>" name="vote" class="btn vote" style="<?= $vote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>', true)">Vote</button>
-            <button type="submit" id="unvote-<?= $team['id'] ?>" name="unvote" class="btn unvote" style="<?= $unvote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>', false)">UnVote</button>
+            <button type="submit" id="unvote-<?= $team['id'] ?>" name="unvote" class="btn unvote" style="<?= $unvote_display[$team['id']] ?>" onclick="vote('<?= $team['id'] ?>', false)">Unvote</button>
           </div>
         </div>
       <?php endforeach;?>
