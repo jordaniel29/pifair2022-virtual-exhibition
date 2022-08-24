@@ -1,5 +1,5 @@
 function closeModal(sponsorId) {
-  var ytId = "youtube-" + sponsorId;
+  var ytId = "poster-" + sponsorId;
   document.getElementById(ytId).src = document.getElementById(ytId).src;
   var teamModal = document.getElementById("modal-" + sponsorId);
   teamModal.style.display = "none";
@@ -34,8 +34,8 @@ AFRAME.registerComponent("highlight-hall", {
     var id = "modal-" + evt.currentTarget.id;
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
-    var teamModal = document.getElementById(id);
-    teamModal.style.display = "block";
+    var sponsorModal = document.getElementById(id);
+    sponsorModal.style.display = "block";
   },
 
   onMouseEnter: function (evt) {
@@ -78,6 +78,16 @@ AFRAME.registerComponent("limit-my-distance-hall", {
     }
     if (this.el.object3D.position.x < -8.5) {
       this.el.object3D.position.x = -8.5;
+      
     }
+
+    // // limit rotation
+    // if (this.el.object3D.rotation.y > 1.5) {
+    //   this.el.object3D.rotation.y = 1.5;
+    // }
+    // if (this.el.object3D.rotation.y < -1.5) {
+    //   this.el.object3D.rotation.y = -1.5;
+    // }
+
   },
 });
