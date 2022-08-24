@@ -14,6 +14,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
     <script src="js/auditorium.js"></script>
     <link rel="stylesheet" href="css/auditorium.css" />
@@ -26,7 +27,7 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
-        <img id="teather" src="assets/auditorium2.jpg" />
+        <img id="teather" src="assets/auditorium.jpg" />
         <img id="film" src="assets/play.webp" />
       </a-assets>
 

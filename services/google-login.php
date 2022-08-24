@@ -6,7 +6,7 @@ require_once("../vendor/autoload.php");
 // Google Auth
 $clientID = "750289530306-n4pltuqpct5amq1gf4cg9dva6ei7mqpm.apps.googleusercontent.com";
 $clientSecret = "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";
-$redirectUri = "http://localhost:3000/services/google-login.php"; //Need to change this
+$redirectUri = "http://localhost/pifair2022-virtual-exhibition/services/google-login.php"; //Need to change this
 
 // Creating client request to google
 $client = new Google_Client();

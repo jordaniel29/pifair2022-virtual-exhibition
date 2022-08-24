@@ -12,7 +12,7 @@ echo '
   <a href="hall" class="icons-container">
     <span class="material-symbols-outlined icons"> museum </span>
   </a>
-  <a href="gallery" class="icons-container">
+  <a href="exhibition" class="icons-container">
     <span class="material-symbols-outlined icons"> how_to_vote </span>
   </a>
   <a href="auditorium" class="icons-container">
