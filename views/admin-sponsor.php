@@ -2,14 +2,9 @@
   require_once("services/config.php");
   require_once("services/auth-admin.php");
 
-  // Get teams data
-  $sql = "SELECT * FROM team";
-  $stmt = $db->prepare($sql);
-  $stmt->execute();
-  $teams = array(); //Create array to keep all results
-  while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
-    array_push($teams, $res);
-  };
+  // Get sponsors data
+  $data = file_get_contents('json/sponsors.json');
+  $sponsors = json_decode($data, true);
 ?>
 
 <!DOCTYPE html>
@@ -29,23 +24,23 @@
   <body>
     <div class="container">
       <?php include "admin-navbar.php" ?>
-      <h1>List of Teams</h1>
-      <form method="post" action="services/edit-team.php" target="temp">
+      <h1>List of Sponsors</h1>
+      <form method="post" action="services/edit-sponsor.php" target="temp">
         <div class="form">
-          <?php foreach ($teams as $team) : ?>
+          <?php foreach ($sponsors as $sponsor) : ?>
             <div class="team">
-              <div class="team-title"><?= $team["id"] ?></div>
+              <div class="team-title"><?= $sponsor["id"] ?></div>
               <div class="team-column">
                 <label class="input-title">Name</label>
-                <input name="name-<?= $team["id"] ?>" class="input" type="text" placeholder="Name" value="<?= $team["team_name"]?>" required />
+                <input name="name-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Name" value="<?= $sponsor["name"]?>" required />
               </div>
               <div class="team-column">
                 <label class="input-title">Youtube URL</label>
-                <input name="youtube-<?= $team["id"] ?>" class="input" type="text" placeholder="Youtube" value="<?= $team["team_youtube"] ?>" required />
+                <input name="youtube-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Youtube" value="<?= $sponsor["youtube"] ?>" required />
               </div>
               <div class="team-column">
                 <label class="input-title">Image URL</label>
-                <input name="image-<?= $team["id"] ?>" class="input" type="text" placeholder="Image" value="<?= $team["team_image"]?>" required />
+                <input name="image-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Image" value="<?= $sponsor["image"]?>" required />
               </div>
             </div>
           <?php endforeach;?>
