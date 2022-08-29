@@ -131,8 +131,8 @@
         <a-entity
           id="info-desk"
           mixin="object"
-          geometry="primitive: plane; width: 8.5; height: 2.7"
-          position="-1.2 -0.35 -15"
+          geometry="primitive: plane; width: 4; height: 2.3"
+          position="-1.2 0.35 -15"
           rotation="0 0 0"
           scale="1.4 1.4 1.4"
           class="raycastable menu-button"
@@ -142,14 +142,14 @@
             height="1"
             src="#info"
             transparent="true"
-            position="0 1 0" 
+            position="0 0.6 0" 
             alpha-test="0.5"
           ></a-image>
           <a-text
             font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
             value="Info Desk"
             scale="3.5 3.5 3.5"
-            position="0 0 0"
+            position="0 -0.5 0"
             color="black"
             align="center"
           ></a-text>
