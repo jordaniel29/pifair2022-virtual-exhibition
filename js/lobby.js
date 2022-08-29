@@ -1,13 +1,24 @@
 function closeModal() {
-  var modal = document.getElementById("myModal");
+  var modal = document.getElementById("modalHelpDesk");
   modal.style.display = "none";
+  modal = document.getElementById("modalVideo");
+  modal.style.display = "none";
+  document.getElementById("myYoutubePlayer").src =
+    document.getElementById("myYoutubePlayer").src;
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  var modal = document.getElementById("myModal");
+  var modal = document.getElementById("modalHelpDesk");
   if (event.target == modal) {
     this.closeModal();
+    return;
+  }
+
+  modal = document.getElementById("modalVideo");
+  if (event.target == modal) {
+    this.closeModal();
+    return;
   }
 };
 
@@ -25,7 +36,13 @@ AFRAME.registerComponent("highlight-lobby", {
     var id = evt.currentTarget.id;
 
     if (id == "info-desk") {
-      var modal = document.getElementById("myModal");
+      var modal = document.getElementById("modalHelpDesk");
+      modal.style.display = "block";
+      return;
+    }
+
+    if (id == "video") {
+      var modal = document.getElementById("modalVideo");
       modal.style.display = "block";
       return;
     }

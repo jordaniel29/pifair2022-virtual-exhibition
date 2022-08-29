@@ -23,16 +23,15 @@
       <a-assets>
         <img id="lobby" src="assets/lobby.jpg" />
         <img id="logo" src="assets/logo2.png" />
-        <img id="info" src="assets/info.png" />
         <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
         <a-asset-item id="door-mtl" src="assets/door.mtl"></a-asset-item>
 
         <a-mixin
-          id="object"
-          geometry="primitive: plane; width: 4; height: 4"
-          material="opacity: 0.0; transparent: true"
-          animation__scale="property: scale; to: 1.6 1.6 1.6; dur: 200; startEvents: mouseenter"
-          animation__scale_reverse="property: scale; to: 1.4 1.4 1.4; dur: 200; startEvents: mouseleave"
+          id="click"
+          geometry="primitive: circle; radius: 0.4"
+          material="color: white; shader: flat"
+          animation__scale="property: scale; to: 1.1 1.1 1.1; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
       </a-assets>
 
@@ -48,132 +47,138 @@
       <a-sky src="#lobby" rotation="0 -90 0"></a-sky>
       
       <!-- Left Door -->
+      <a-entity
+        position="-10 1.7 -13"
+        rotation="0 50 0"
+        scale="1.4 1.4 1.4"
+      >
+        <a-entity
+          obj-model="obj: #door-obj; mtl: #door-mtl;"
+          rotation="0 180 0"
+          position="-0.5 -2 0"
+          scale="0.023 0.025 0.025"
+        ></a-entity>
+        <a-text
+          font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          value="Hall"
+          scale="3.5 3.5 3.5"
+          position="-0.5 2.5 1"
+          align="center"
+        ></a-text>
+      </a-entity>
+      
       <a-entity highlight-lobby>
         <a-entity
           id="hall"
-          mixin="object"
-          position="-10 1.7 -13"
-          rotation="0 50 0"
-          scale="1.4 1.4 1.4"
+          mixin="click"
+          position="-8.3 1.8 -10"
           class="raycastable menu-button"
         >
-          <a-entity
-            obj-model="obj: #door-obj; mtl: #door-mtl;"
-            rotation="0 180 0"
-            position="-0.5 -2 0"
-            scale="0.023 0.025 0.025"
-          ></a-entity>
-          <a-text
-            font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-            value="Hall"
-            scale="3.5 3.5 3.5"
-            position="-0.5 2.5 1"
-            align="center"
-          ></a-text>
         </a-entity>
       </a-entity>
 
+      <!-- Behind Door -->
+      <a-entity
+        position="-15 1.4 1.9"
+        rotation="0 90 0"
+        scale="1.4 1.4 1.4"
+      >
+        <a-entity
+          obj-model="obj: #door-obj; mtl: #door-mtl;"
+          rotation="0 180 0"
+          position="-0.3 -2 0"
+          scale="0.025 0.025 0.025"
+        ></a-entity>
+        <a-text
+          font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          value="Exhibition"
+          scale="3.5 3.5 3.5"
+          position="-0.3 2.5 1"
+          align="center"
+        ></a-text>
+      </a-entity>
       
       <a-entity highlight-lobby>
         <a-entity
           id="exhibition"
-          mixin="object"
-          position="-15 1.4 1.9"
+          mixin="click"
+          position="-12 1.6 2.2"
           rotation="0 90 0"
-          scale="1.4 1.4 1.4"
           class="raycastable menu-button"
         >
-          <a-entity
-            obj-model="obj: #door-obj; mtl: #door-mtl;"
-            rotation="0 180 0"
-            position="-0.3 -2 0"
-            scale="0.025 0.025 0.025"
-          ></a-entity>
-          <a-text
-            font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-            value="Exhibition"
-            scale="3.5 3.5 3.5"
-            position="-0.3 2.5 1"
-            align="center"
-          ></a-text>
         </a-entity>
       </a-entity>
-      
 
       <!-- Right Door -->
+      <a-entity
+        id="auditorium"
+        position="9 1.7 -14"
+        rotation="0 -60 0"
+        scale="1.4 1.4 1.4"
+      >
+        <a-entity
+          obj-model="obj: #door-obj; mtl: #door-mtl;"
+          rotation="0 180 0"
+          position="0.5 -2 0"
+          scale="0.025 0.025 0.025"
+        ></a-entity>
+        <a-text
+          font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          value="Auditorium"
+          scale="3.5 3.5 3.5"
+          position="0.5 2.5 1"
+          align="center"
+        ></a-text>
+      </a-entity>
+
       <a-entity highlight-lobby>
         <a-entity
           id="auditorium"
-          mixin="object"
-          position="9 1.7 -14"
-          rotation="0 -60 0"
-          scale="1.4 1.4 1.4"
+          mixin="click"
+          position="6 1.8 -10"
           class="raycastable menu-button"
         >
-          <a-entity
-            obj-model="obj: #door-obj; mtl: #door-mtl;"
-            rotation="0 180 0"
-            position="0.5 -2 0"
-            scale="0.025 0.025 0.025"
-          ></a-entity>
-          <a-text
-            font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-            value="Auditorium"
-            scale="3.5 3.5 3.5"
-            position="0.5 2.5 1"
-            align="center"
-          ></a-text>
         </a-entity>
       </a-entity>
 
       <!-- Info Desk -->
+      <a-text
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        value="Info Desk"
+        scale="5 5 5"
+        position="-1.2 -0.35 -15"
+        color="black"
+        align="center"
+      ></a-text>
+
       <a-entity highlight-lobby>
         <a-entity
           id="info-desk"
-          mixin="object"
-          geometry="primitive: plane; width: 8.5; height: 2.7"
-          position="-1.2 -0.35 -15"
-          rotation="0 0 0"
-          scale="1.4 1.4 1.4"
+          mixin="click"
+          position="-1.15 1 -10"
           class="raycastable menu-button"
         >
-          <a-image
-            width="1"
-            height="1"
-            src="#info"
-            transparent="true"
-            position="0 1 0" 
-            alpha-test="0.5"
-          ></a-image>
-          <a-text
-            font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-            value="Info Desk"
-            scale="3.5 3.5 3.5"
-            position="0 0 0"
-            color="black"
-            align="center"
-          ></a-text>
         </a-entity>
       </a-entity>
 
-      <!-- TV -->
+      <!-- Logo -->
+      <a-image
+        width="3.5"
+        height="2"
+        position="-1 4 -13"
+        scale="1.4 1.4 1.4"
+        src="#logo"
+        transparent="true" 
+        alpha-test="0.5"
+      ></a-image>
+
       <a-entity highlight-lobby>
         <a-entity
           id="video"
-          mixin="object"
-          geometry="primitive: plane; width: 3.5; height: 2"
-          position="-1 4 -13"
-          rotation="0 0 0"
-          scale="1.4 1.4 1.4"
+          mixin="click"
+          position="-1.15 3.5 -10"
           class="raycastable menu-button"
         >
-          <a-image
-            width="3.5"
-            height="2"
-            src="#logo"
-            transparent="true" 
-            alpha-test="0.5"
-          ></a-image>
         </a-entity>
       </a-entity>
 
