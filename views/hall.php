@@ -4,6 +4,9 @@
   $data = file_get_contents('json/sponsors.json');
   $array = json_decode($data, true);
 
+  $data_logo = file_get_contents('json/sponsor-logo.json');
+  $array_logo = json_decode($data_logo, true);
+
 ?>
 
 <!DOCTYPE html>
@@ -25,20 +28,39 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
+        <?php foreach ($array_logo as $sponsor_logo) : ?>
+          <img
+            id="image-<?= $sponsor_logo["id"] ?>"
+            src=<?= $sponsor_logo["image"] ?>
+          />
+        <?php endforeach;?>
         <a-asset-item id="hall-obj" src="assets/hall.obj"></a-asset-item>
         <a-asset-item id="hall-mtl" src="assets/hall.mtl"></a-asset-item>
+        <a-asset-item id="pole-obj" src="assets/pole.obj"></a-asset-item>
+        <a-asset-item id="pole-mtl" src="assets/pole.mtl"></a-asset-item>
+
         <img id="cursor" src="assets/clickme.png" />
+        <img id="wallnew3" src="assets/wallnew3.png" />
+        <img id="ceil" src="assets/ceil-hall.png" />
         <a-mixin
           id="frame"
           geometry="primitive: circle; radius: 0.1"
           material="color: black; shader: flat"
-          animation__scale="property: scale; to: 1.1 1.1 1.1; dur: 200; startEvents: mouseenter"
+          animation__scale="property: scale; to: 1.02 1.02 1.02; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+        ></a-mixin>
+        <a-mixin
+          id="logo"
+          geometry="primitive: plane; width: 1.25; height: 0.6"
+          animation__scale="property: scale; to: 1.02 1.02 1.02; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
         <a-mixin
           id="poster"
-          geometry="primitive: plane; width: 8; height: 2.75"
-          position="-1 1.6 -4.8"
+          geometry="primitive: plane; width: 1.25; height: 0.6"
+          material="color: white; shader: flat"
+          material="shader: flat"
+          position="0 0 0.005"
         ></a-mixin>
       </a-assets>
 
@@ -49,16 +71,23 @@
       <a-entity
         position="-1 1.7 -0.5"
         camera="fov: 50;"
-        limit-my-distance-hall
         look-controls="magicWindowTrackingEnabled: true; touchEnabled: true; mouseEnabled: true"
-        wasd-controls="acceleration:100"
+        wasd-controls="acceleration:1000"
       >
+      <!-- limit-my-distance-hall -->
       </a-entity>
 
       <a-entity
         obj-model="obj: #hall-obj; mtl: #hall-mtl;"
         position="-1 -0.25 0"
         scale="0.025 0.025 0.025"
+      ></a-entity>
+
+      <a-entity
+        obj-model="obj: #pole-obj; mtl: #pole-mtl;"
+        position="3 0 0"
+        rotation="0 0 0"
+        scale="0.0015 0.0015 0.0015"
       ></a-entity>
 
       <!-- Poster menu -->
@@ -75,6 +104,68 @@
           </a-entity>
         <?php endforeach;?>
       </a-entity>
+
+      <!-- Logo menu -->
+      <a-entity id="menu" highlight-hall>
+        <?php foreach ($array_logo as $sponsor_logo) : ?>
+          <a-entity
+            id="<?= $sponsor_logo["id"] ?>"
+            position= "<?= $sponsor_logo["position"] ?>"
+            rotation= "<?= $sponsor_logo["rotation"] ?>"
+            mixin="logo"
+            class="raycastable menu-button"
+          >
+            <a-entity
+              material="src: #image-<?= $sponsor_logo["id"] ?>;"
+              mixin="poster"
+            ></a-entity>
+          </a-entity>
+        <?php endforeach;?>
+      </a-entity>
+
+      <!-- Walls -->
+      <a-plane
+        position="-3.5 3 -14"
+        rotation="0 0 0"
+        width="32"
+        height="6"
+        src="#wallnew3"
+      ></a-plane>
+      <a-plane
+        position="11.5 3 -0.5"
+        rotation="0 -90 0"
+        width="27"
+        height="6"
+        src="#wallnew3"
+      ></a-plane>
+      <a-plane
+        position="-3.5 3 13"
+        rotation="0 180 0"
+        width="32"
+        height="6"
+        src="#wallnew3"
+      ></a-plane>
+      <a-plane
+        position="-19 3 -0.5"
+        rotation="0 90 0"
+        width="27"
+        height="6"
+        src="#wallnew3"
+      ></a-plane>
+      <!-- <a-plane
+        position="0 0 4"
+        rotation="-90 0 0"
+        width="8"
+        height="16"
+        src="#carpet"
+      ></a-plane> -->
+      <a-plane
+        position="-3.5 6 -0.5"
+        rotation="90 0 0"
+        width="33"
+        height="33"
+        src="#ceil"
+      ></a-plane>
 
     </a-scene>
 

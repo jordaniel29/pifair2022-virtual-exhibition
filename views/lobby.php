@@ -11,9 +11,8 @@
     <meta charset="utf-8" />
     <title>Pifair 2022</title>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- <!-- <script src="js/teather.js"></script> -->
     <script src="js/lobby.js"></script> -->
-    <link rel="stylesheet" href="css/teather.css" />
+    <link rel="stylesheet" href="css/lobby.css" />
   </head>
   <body>
     <a-scene
@@ -26,18 +25,12 @@
       <a-assets>
         <a-asset-item id="lobby-obj" src="assets/lobby.obj"></a-asset-item>
         <a-asset-item id="lobby-mtl" src="assets/lobby.mtl"></a-asset-item>
-        <img id="cursor" src="assets/clickme.png" />
         <a-mixin
           id="frame"
           geometry="primitive: circle; radius: 0.2"
           material="color: black; shader: flat"
           animation__scale="property: scale; to: 1.1 1.1 1.1; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
-        ></a-mixin>
-        <a-mixin
-          id="poster"
-          geometry="primitive: plane; width: 8; height: 2.75"
-          position="-1 1.6 -4.8"
         ></a-mixin>
       </a-assets>
 
@@ -74,23 +67,37 @@
         <?php endforeach;?>
       </a-entity>
 
+      <!-- Information menu -->
+      <a-entity id="menu" information-menu>
+        <a-entity
+          id="information"
+          position= "-0.69 3.6 0.8"
+          rotation= "0 180 0"
+          mixin="frame"
+          material="color: white"
+          scale="1.3 1.3 1.3"
+          animation__scale="property: scale; to: 1.6 1.6 1.6; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1.3 1.3 1.3; dur: 200; startEvents: mouseleave"
+          class="raycastable menu-button"
+        >
+        </a-entity>
+      </a-entity>
+
     </a-scene>
 
     <?php include 'navbar.php' ?>
 
-    <div id="myModal" class="background">
-      <?php foreach ($array as $room) : ?>
-        <div class="modal" id="modal-<?= $room["id"] ?>">
-          <img 
-            id="youtube-<?= $room["id"] ?>"
-            class="youtube-player"
-            width="480" 
-            height="270" 
-            src="<?= $room["image"] ?>"
-            >
-          </img>
+    <div id="informationModal" class="background">
+      <div class="modal">
+        <div class="header">Contact Us</div>
+        <div class="body">
+          <h4 class="contact-info-text">Muhammad Farhan Abdillah</h4>
+          <h4 class="contact-info-text">+6281218921012</h4>
         </div>
-      <?php endforeach;?>
+        <div class="footer">
+          <button class="btn close" onclick="closeModal()">Close</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>

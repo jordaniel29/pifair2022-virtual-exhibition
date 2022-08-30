@@ -1,0 +1,30 @@
+[ 
+  {
+    "id": "sponsor-1",
+    "name": "PIFAIR 2022",
+    "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
+    "position": "-1.8 2.935 -2.88",
+    "rotation": "0 0 0"
+  },
+  {
+    "id": "sponsor-2",
+    "name": "PIFAIR 2022",
+    "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
+    "position": "-6.757 2.935 -2.88",
+    "rotation": "0 0 0"
+  },
+  {
+    "id": "sponsor-3",
+    "name": "PIFAIR 2022",
+    "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
+    "position": "-3.329 2.935 2.485",
+    "rotation": "0 180 0"
+  },
+  {
+    "id": "sponsor-4",
+    "name": "PIFAIR 2022",
+    "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
+    "position": "-8.382 2.935 2.485",
+    "rotation": "0 180 0"
+  }
+]

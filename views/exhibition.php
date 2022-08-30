@@ -49,7 +49,7 @@
     <title>Pifair 2022</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/exhibition.js"></script>
     <link rel="stylesheet" href="css/exhibition.css" />
@@ -71,9 +71,21 @@
           />
         <?php endforeach;?>
 
+        <a-asset-item id="carpet-obj" src="assets/carpet.obj"></a-asset-item>
+        <a-asset-item id="carpet-mtl" src="assets/carpet.mtl"></a-asset-item>
+        <a-asset-item id="pole-obj" src="assets/pole.obj"></a-asset-item>
+        <a-asset-item id="pole-mtl" src="assets/pole.mtl"></a-asset-item>
+        <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
+        <a-asset-item id="door-mtl" src="assets/door.mtl"></a-asset-item>
+
         <img id="floor" src="assets/floor.jfif" />
         <img id="wall" src="assets/pifair.png" />
         <img id="wall2" src="assets/pifair2.png" />
+        <img id="wallnew" src="assets/wallnew.jpg" />
+        <img id="wallnew2" src="assets/wallnew2.png" />
+        <img id="exhall" src="assets/exhall.jpg" />
+        <img id="carpet" src="assets/blue-carpets-2.jpg" />
+        <img id="ceil" src="assets/exhibition-ceil.png" />
         
         <a-mixin
           id="frame"
@@ -105,11 +117,41 @@
 
       <!-- Camera -->
       <a-entity
-        position="0 1.6 0"
-        camera
+        position="0 1.6 6"
+        camera="fov: 45;"
         look-controls="magicWindowTrackingEnabled: true; touchEnabled: true; mouseEnabled: true"
       >
       </a-entity>
+
+      <a-sky color="#cccccc"></a-sky>
+
+      <a-entity
+        obj-model="obj: #pole-obj; mtl: #pole-mtl;"
+        position="0 0 -0.8"
+        rotation="0 90 0"
+        scale="0.001 0.001 0.001"
+      ></a-entity>
+
+      <a-entity
+        obj-model="obj: #pole-obj; mtl: #pole-mtl;"
+        position="2.5 0 0.7"
+        rotation="0 0 0"
+        scale="0.001 0.001 0.001"
+      ></a-entity>
+
+      <a-entity
+        obj-model="obj: #pole-obj; mtl: #pole-mtl;"
+        position="-2.5 0 0.7"
+        rotation="0 0 0"
+        scale="0.001 0.001 0.001"
+      ></a-entity>
+
+      <a-entity
+        obj-model="obj: #door-obj; mtl: #door-mtl;"
+        position="0 -0.2 12.7"
+        rotation="0 0 0"
+        scale="0.02 0.02 0.02"
+      ></a-entity>
 
       <!-- Hand controls -->
       <a-entity
@@ -150,8 +192,25 @@
 
       <!-- Lighting -->
       <a-entity
-        light="type: point; intensity: 0.75; distance: 13; decay: 2"
+        light="type: point; intensity: 0.6; distance: 35; decay: 2"
+        position="0 1 0"
+      ></a-entity>
+
+      <a-entity
+        light="type: point; intensity: 0.6; distance: 35; decay: 2"
         position="0 3.5 0"
+        rotation="0 0 180"
+      ></a-entity>
+      
+      <a-entity
+        light="type: point; intensity: 0.4; distance: 15; decay: 2"
+        position="0 1 8"
+      ></a-entity>
+
+      <a-entity
+        light="type: point; intensity: 0.4; distance: 15; decay: 2"
+        position="0 3.5 8"
+        rotation="0 0 180"
       ></a-entity>
 
       <!-- Walls -->
@@ -160,42 +219,42 @@
         rotation="0 0 0"
         width="8"
         height="4"
-        src="#wall"
+        src="#wallnew"
       ></a-plane>
       <a-plane
-        position="4 2 0"
+        position="4 2 4"
         rotation="0 -90 0"
-        width="8"
+        width="16"
         height="4"
-        src="#wall2"
+        src="#wallnew2"
       ></a-plane>
       <a-plane
-        position="0 2 4"
+        position="0 2 12"
         rotation="0 180 0"
         width="8"
         height="4"
-        src="#wall"
+        src="#wallnew"
       ></a-plane>
       <a-plane
-        position="-4 2 0"
+        position="-4 2 4"
         rotation="0 90 0"
-        width="8"
+        width="16"
         height="4"
-        src="#wall2"
+        src="#wallnew2"
       ></a-plane>
       <a-plane
-        position="0 0.1 0"
+        position="0 0 4"
         rotation="-90 0 0"
         width="8"
-        height="8"
-        src="#floor"
+        height="16"
+        src="#carpet"
       ></a-plane>
       <a-plane
-        position="0 4 0"
+        position="0 4 4"
         rotation="90 0 0"
         width="8"
-        height="8"
-        src="#floor"
+        height="16"
+        src="#ceil"
       ></a-plane>
     </a-scene>
 

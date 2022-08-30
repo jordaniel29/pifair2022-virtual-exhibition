@@ -68,5 +68,19 @@
     "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
     "position": "-7.82 1.8 5.35",
     "rotation": "0 180 0"
+  },
+  {
+    "id": "sponsor-11",
+    "name": "PIFAIR 2022",
+    "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
+    "position": "-5.478 1.565 -3.000",
+    "rotation": "0 315 0"
+  },
+  {
+    "id": "sponsor-12",
+    "name": "PIFAIR 2022",
+    "image": "https://i.postimg.cc/RFtddr3R/PIFAIR.png",
+    "position": "-8.976 1.565 -3.000",
+    "rotation": "0 315 0"
   }
 ]
