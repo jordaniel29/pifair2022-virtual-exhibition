@@ -77,13 +77,12 @@
         <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
         <a-asset-item id="door-mtl" src="assets/door.mtl"></a-asset-item>
 
-        <img id="floor" src="assets/floor.jfif" />
         <img id="wall" src="assets/pifair.png" />
         <img id="wall2" src="assets/pifair2.png" />
         <img id="wallnew" src="assets/wallnew.jpg" />
         <img id="wallnew2" src="assets/wallnew2.png" />
         <img id="exhall" src="assets/exhall.jpg" />
-        <img id="carpet" src="assets/blue-carpets-2.jpg" />
+        <img id="floor" src="assets/checkered-exhibition.png" />
         <img id="ceil" src="assets/exhibition-ceil.png" />
         
         <a-mixin
@@ -246,7 +245,7 @@
         rotation="-90 0 0"
         width="8"
         height="16"
-        src="#carpet"
+        src="#floor"
       ></a-plane>
       <a-plane
         position="0 4 4"

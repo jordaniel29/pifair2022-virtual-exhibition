@@ -41,8 +41,9 @@
 
         <img id="cursor" src="assets/clickme.png" />
         <img id="wallnew3" src="assets/wallnew3.png" />
+        <img id="beigewall" src="assets/beige-hall.png" />
         <img id="ceil" src="assets/ceil-hall.png" />
-        <img id="floor" src="assets/floor-hall.png" />
+        <img id="floor" src="assets/checkered-hall.png" />
 
         <a-mixin
           id="frame"
@@ -82,7 +83,7 @@
       <!-- Lighting -->
       <a-entity light="type: ambient; color: #BBB"></a-entity>
       <a-entity 
-        light="type: directional; color: #FFF; intensity: 0.6" 
+        light="type: directional; color: #FFF; intensity: 0.2" 
         position="0 3 0"
       >
       </a-entity>
@@ -162,13 +163,13 @@
         height="6"
         src="#wallnew3"
       ></a-plane>
-      <!-- <a-plane
+      <a-plane
         position="-3.5 0.06 -0.5"
         rotation="-90 0 0"
         width="33"
         height="33"
         src="#floor"
-      ></a-plane> -->
+      ></a-plane>
       <a-plane
         position="-3.5 6 -0.5"
         rotation="90 0 0"
