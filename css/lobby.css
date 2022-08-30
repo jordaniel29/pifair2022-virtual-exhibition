@@ -14,59 +14,55 @@ body {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
-.modal {
+.modal-contact {
   position: absolute;
-  width: 760px;
-  top: calc(50% - 283px);
-  left: calc(50% - 390px);
+  width: 680px;
+  top: calc(50% - 91px);
+  left: calc(50% - 350px);
   background-color: #292f51;
   border-radius: 10px;
   padding: 10px;
 }
-.header {
+.header-contact {
   padding: 10px;
   color: white;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 40px;
   text-align: center;
 }
-.body {
-  padding: 10px 0;
+.body-contact {
+  padding: 24px 0;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+}
+.contact {
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.contact:hover {
+  color: rgb(224, 213, 213);
+}
+.modal-video {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
 .youtube-player {
-  border-radius: 10px;
-}
-.footer {
-  display: flex;
-  justify-content: flex-end;
-}
-.btn {
-  width: 120px;
-  height: 40px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 16px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)) top/100% 800%;
-  transition: 0.5s;
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.close {
-  background-color: white;
-  color: black;
-}
-.btn:hover {
-  background-position: bottom;
-}
-
-.contact-info-text {
+  position: absolute;
+  top: calc(50% - 251px);
+  left: calc(50% - 446px);
+  text-align: center;
   color: white;
-  margin-top: 0
 }

@@ -13,7 +13,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Pifair 2022</title>
+    <title>PI FAIR 2022 - Energize In Transition</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
     <script src="js/auditorium.js"></script>
