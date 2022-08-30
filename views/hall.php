@@ -42,6 +42,8 @@
         <img id="cursor" src="assets/clickme.png" />
         <img id="wallnew3" src="assets/wallnew3.png" />
         <img id="ceil" src="assets/ceil-hall.png" />
+        <img id="floor" src="assets/floor-hall.png" />
+
         <a-mixin
           id="frame"
           geometry="primitive: circle; radius: 0.1"
@@ -74,6 +76,14 @@
         look-controls="magicWindowTrackingEnabled: true; touchEnabled: true; mouseEnabled: true"
         wasd-controls="acceleration:100"
         limit-my-distance-hall
+      >
+      </a-entity>
+
+      <!-- Lighting -->
+      <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-entity 
+        light="type: directional; color: #FFF; intensity: 0.6" 
+        position="0 3 0"
       >
       </a-entity>
 
@@ -153,11 +163,11 @@
         src="#wallnew3"
       ></a-plane>
       <!-- <a-plane
-        position="0 0 4"
+        position="-3.5 0.06 -0.5"
         rotation="-90 0 0"
-        width="8"
-        height="16"
-        src="#carpet"
+        width="33"
+        height="33"
+        src="#floor"
       ></a-plane> -->
       <a-plane
         position="-3.5 6 -0.5"

@@ -205,27 +205,12 @@
       </a-entity>
 
       <!-- Lighting -->
-      <a-entity
-        light="type: point; intensity: 0.6; distance: 35; decay: 2"
-        position="0 1 0"
-      ></a-entity>
-
-      <a-entity
-        light="type: point; intensity: 0.6; distance: 35; decay: 2"
-        position="0 3.5 0"
-        rotation="0 0 180"
-      ></a-entity>
-      
-      <a-entity
-        light="type: point; intensity: 0.4; distance: 15; decay: 2"
-        position="0 1 8"
-      ></a-entity>
-
-      <a-entity
-        light="type: point; intensity: 0.4; distance: 15; decay: 2"
-        position="0 3.5 8"
-        rotation="0 0 180"
-      ></a-entity>
+      <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-entity 
+        light="type: directional; color: #FFF; intensity: 0.6" 
+        position="0 3 0"
+      >
+      </a-entity>
 
       <!-- Walls -->
       <a-plane
