@@ -49,7 +49,6 @@
     <title>PI FAIR 2022 - Energize In Transition</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
-    <!-- <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/exhibition.js"></script>
     <link rel="stylesheet" href="css/exhibition.css" />
@@ -102,6 +101,14 @@
           material="shader: flat"
           position="0 0 0.005"
         ></a-mixin>
+
+        <a-mixin
+          id="door"
+          geometry="primitive: plane; width: 4; height: 4"
+          material="opacity: 0.0; transparent: true"
+          animation__scale="property: scale; to: 0.022 0.022 0.022; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 0.02 0.02 0.02; dur: 200; startEvents: mouseleave"
+        ></a-mixin>
       </a-assets>
 
       <a-entity
@@ -125,6 +132,7 @@
 
       <a-sky color="#cccccc"></a-sky>
 
+      <!-- Pole Object -->
       <a-entity
         obj-model="obj: #pole-obj; mtl: #pole-mtl;"
         position="0 0 -0.8"
@@ -146,12 +154,18 @@
         scale="0.001 0.001 0.001"
       ></a-entity>
 
-      <a-entity
-        obj-model="obj: #door-obj; mtl: #door-mtl;"
-        position="0 -0.2 12.7"
-        rotation="0 0 0"
-        scale="0.02 0.02 0.02"
-      ></a-entity>
+      <!-- Door Object -->
+      <a-entity highlight-exhibition>
+        <a-entity
+          id="lobby"
+          mixin="door"
+          obj-model="obj: #door-obj; mtl: #door-mtl;"
+          position="0 -0.2 12.7"
+          rotation="0 0 0"
+          scale="0.02 0.02 0.02"
+          class="raycastable menu-button"
+        ></a-entity>
+      <a-entity highlight-exhibition>
 
       <!-- Hand controls -->
       <a-entity

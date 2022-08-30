@@ -73,7 +73,7 @@
         </a-entity>
       </a-entity>
 
-      
+      <!-- Behind Door -->
       <a-entity highlight-lobby>
         <a-entity
           id="exhibition"

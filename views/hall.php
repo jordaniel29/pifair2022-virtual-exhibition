@@ -13,10 +13,10 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Pifair 2022</title>
+    <title>PI FAIR 2022 - Energize In Transition</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- <!-- <script src="js/teather.js"></script> -->
-    <script src="js/hall.js"></script> -->
+    <script src="js/hall.js"></script>
     <link rel="stylesheet" href="css/exhibition.css" />
   </head>
   <body>
@@ -72,9 +72,9 @@
         position="-1 1.7 -0.5"
         camera="fov: 50;"
         look-controls="magicWindowTrackingEnabled: true; touchEnabled: true; mouseEnabled: true"
-        wasd-controls="acceleration:1000"
+        wasd-controls="acceleration:100"
+        limit-my-distance-hall
       >
-      <!-- limit-my-distance-hall -->
       </a-entity>
 
       <a-entity

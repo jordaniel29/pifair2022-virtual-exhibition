@@ -65,29 +65,19 @@ AFRAME.registerComponent("limit-my-distance-hall", {
 
   tick: function () {
     // limit Z
-    if (this.el.object3D.position.z > 8.5) {
-      this.el.object3D.position.z = 8.5;
+    if (this.el.object3D.position.z > 12.7) {
+      this.el.object3D.position.z = 12.7;
     }
-    if (this.el.object3D.position.z < -8.5) {
-      this.el.object3D.position.z = -8.5;
+    if (this.el.object3D.position.z < -12.7) {
+      this.el.object3D.position.z = -12.7;
     }
 
     // limit X
-    if (this.el.object3D.position.x > 8.5) {
-      this.el.object3D.position.x = 8.5;
+    if (this.el.object3D.position.x > 11) {
+      this.el.object3D.position.x = 11;
     }
-    if (this.el.object3D.position.x < -8.5) {
-      this.el.object3D.position.x = -8.5;
-      
+    if (this.el.object3D.position.x < -18.5) {
+      this.el.object3D.position.x = -18.5;
     }
-
-    // // limit rotation
-    // if (this.el.object3D.rotation.y > 1.5) {
-    //   this.el.object3D.rotation.y = 1.5;
-    // }
-    // if (this.el.object3D.rotation.y < -1.5) {
-    //   this.el.object3D.rotation.y = -1.5;
-    // }
-
   },
 });

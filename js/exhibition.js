@@ -67,6 +67,11 @@ AFRAME.registerComponent("highlight-exhibition", {
   },
 
   onClick: function (evt) {
+    if (evt.currentTarget.id == "lobby") {
+      window.location.href = evt.currentTarget.id;
+      return;
+    }
+
     var id = "modal-" + evt.currentTarget.id;
     var modal = document.getElementById("myModal");
     modal.style.display = "block";
