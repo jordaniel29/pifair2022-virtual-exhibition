@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 12, 2022 at 01:32 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Generation Time: Aug 30, 2022 at 04:15 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,9 +41,9 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`id`, `team_name`, `team_youtube`, `team_image`, `position`, `rotation`) VALUES
-('team-1', 'Team A', 'https://www.youtube.com/embed/3uVMOOf3zRQ', 'https://i.postimg.cc/RFtddr3R/PIFAIR.png', '0 2 -3.9', '0 0 0'),
+('team-1', 'Team A', 'https://www.youtube.com/embed/3uVMOOf3zRQ', 'https://i.postimg.cc/RFtddr3R/PIFAIR.png', '-1.6 2 -3.9', '0 0 0'),
 ('team-2', 'Team B', 'https://www.youtube.com/embed/40cLHVNlvmI', 'https://i.postimg.cc/vBXBpT6H/image.png', '3.9 2 0', '0 -90 0'),
-('team-3', 'Team C', 'https://www.youtube.com/embed/yAiCUXWT-QA', 'https://cdn.aframe.io/examples/ui/ponyoPoster.jpg', '0 2 3.9', '0 180 0'),
+('team-3', 'Team C', 'https://www.youtube.com/embed/yAiCUXWT-QA', 'https://cdn.aframe.io/examples/ui/ponyoPoster.jpg', '1.6 2 -3.9', '0 0 0'),
 ('team-4', 'Team D', 'https://www.youtube.com/embed/tChKQMBBkv4', 'https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg', '-3.9 2 0', '0 90 0');
 
 -- --------------------------------------------------------
@@ -68,8 +68,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `university`, `team_id`, `is_admin`, `token`) VALUES
-(15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, 'b11644ae19945ce025b04366c3d36479'),
-(16, 'Jordan Daniel Joshua', 'jordan@gmail.com', '$2y$10$Awi3GlfVTZEhRepYqBV1.OOj0/ym9ZtIv87Nw0041Rfu2RlJWwzc6', 'Institut Teknologi Bandung', 'team-1', 0, '62a6b2b2b94814b601f5acc4d34cc122');
+(15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, '8364d7f9b416c64bb15992bf7b4ccb0d'),
+(16, 'Jordan Daniel Joshua', 'jordan@gmail.com', '$2y$10$Awi3GlfVTZEhRepYqBV1.OOj0/ym9ZtIv87Nw0041Rfu2RlJWwzc6', 'Institut Teknologi Bandung', NULL, 0, '0d74679adb63d73929855b3b25465d60');
 
 --
 -- Indexes for dumped tables
