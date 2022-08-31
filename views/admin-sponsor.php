@@ -29,19 +29,23 @@
         <div class="form">
           <?php foreach ($sponsors as $sponsor) : ?>
             <div class="team">
-              <div class="team-title"><?= $sponsor["id"] ?></div>
+              <div class="team-title"><?= $sponsor["name"] ?></div>
               <div class="team-column">
-                <label class="input-title">Name</label>
-                <input name="name-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Name" value="<?= $sponsor["name"]?>" required />
+                <label class="input-title">Logo URL</label>
+                <input name="logo-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Logo URL" value="<?= $sponsor["logo"]["url"]?>" required />
               </div>
               <div class="team-column">
-                <label class="input-title">Youtube URL</label>
-                <input name="youtube-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Youtube" value="<?= $sponsor["youtube"] ?>" required />
+                <label class="input-title">Video URL</label>
+                <input name="video-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Video URL" value="<?= $sponsor["video"]["url"] ?>" required />
               </div>
-              <div class="team-column">
-                <label class="input-title">Image URL</label>
-                <input name="image-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Image" value="<?= $sponsor["image"]?>" required />
-              </div>
+              <?php $count = 0 ?>
+              <?php foreach ($sponsor["poster"] as $poster) : ?>
+                <?php $count += 1 ?>
+                <div class="team-column">
+                  <label class="input-title">Poster URL <?= $count ?></label>
+                  <input name="poster-<?= $poster["id"] ?>" class="input" type="text" placeholder="Poster URL" value="<?= $poster["url"] ?>" required />
+                </div>
+              <?php endforeach;?>
             </div>
           <?php endforeach;?>
         </div>

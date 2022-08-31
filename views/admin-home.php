@@ -16,15 +16,20 @@
 
   // Get users data
   $sql = 'SELECT name, email, university, team_name
-  FROM user INNER JOIN team ON team.id = user.team_id
+  FROM user LEFT JOIN team ON team.id = user.team_id
   WHERE is_admin is false 
-  GROUP BY team_id;';
+  ORDER BY team_id;';
   $stmt = $db->prepare($sql);
   $stmt->execute();
   $users = array(); //Create array to keep all results
   while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
     array_push($users, $res);
   };
+
+  // Get Voting Status
+  $data = file_get_contents('json/vote-status.json');
+  $array = json_decode($data, true);
+  $vote_open = $array["vote_open"]=="true";
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +59,21 @@
 <body>
   <div class="content">
     <?php include "admin-navbar.php" ?>
+
+    <!-- Switch for Vote -->
+    <div class="voting-container">
+    <label class="voting-container">Voting</label>
+      <label class="switch">
+        <input 
+          id="vote-switch" 
+          onclick="changeVoteStatus()" 
+          type="checkbox"
+          <?php if ($vote_open) { echo "checked"; } ?>
+        >
+        <span class="slider round"></span>
+      </label>
+    </div>
+
     <h1>Teams Ranking</h1>
     <table class="table table-striped table-team">
       <thead class="table-team-head">
@@ -71,15 +91,16 @@
         </tr>
       <?php endfor;?>
     </table>
+
     <h1 class="user-title">Users</h1>
     <table class="table table-paginate table-striped table-user">
       <thead class="table-user-head">
         <tr>
-          <th>No</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>University/Insitution</th>
-          <th>Voted Team</th>
+          <th class="cursor-pointer">No</th>
+          <th class="cursor-pointer">Name</th>
+          <th class="cursor-pointer">Email</th>
+          <th class="cursor-pointer">University/Insitution</th>
+          <th class="cursor-pointer">Voted Team</th>
         </tr>
       </thead>
       <?php for ($i=0; $i<count($users); $i++): ?>
@@ -93,5 +114,21 @@
       <?php endfor;?>
     </table>
   </div>
+  <script type="text/javascript">
+    function changeVoteStatus() {
+      var status = document.getElementById('vote-switch');
+      var vote_open = status.checked;
+      $.ajax({
+        type: "post",
+        url: "services/start-stop-vote.php",
+        data: {
+          vote_open: vote_open,
+        },
+        cache: false,
+      });
+      
+      return false;
+    }
+  </script>
 </body>
 </html>

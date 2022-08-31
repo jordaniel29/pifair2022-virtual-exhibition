@@ -37,7 +37,6 @@ AFRAME.registerComponent("highlight-hall", {
   },
 
   onClick: function (evt) {
-    console.log(evt.currentTarget.id);
     var id = "modal-" + evt.currentTarget.id;
     var modal = document.getElementById("myModal");
     modal.style.display = "block";

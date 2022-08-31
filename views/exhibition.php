@@ -11,32 +11,45 @@
     array_push($teams, $res);
   };
 
-  // Get user
-  $sql = "SELECT * FROM user WHERE token=:token";
-  $stmt = $db->prepare($sql);
-  $params = array(
-      ":token" => $_COOKIE["token"]
-  );
-  $stmt->execute($params);
-  $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+  // Get voting status for vote button styling
   $vote_display = array();
   $unvote_display = array();
-  if (!isset($user['team_id'])) {
+
+  $data = file_get_contents('json/vote-status.json');
+  $array = json_decode($data, true);
+  $vote_open = $array["vote_open"];
+  if ($vote_open != "true"){
     foreach ($teams as $team) {
-      $vote_display[$team['id']] = 'display: block';
+      $vote_display[$team['id']] = 'display: none';
       $unvote_display[$team['id']] = 'display: none';
     }
   }
-  else{
-    foreach ($teams as $team) {
-      if ($team['id'] == $user['team_id']) {
-        $vote_display[$team['id']] = 'display: none';
-        $unvote_display[$team['id']] = 'display: block';
-      }
-      else {
-        $vote_display[$team['id']] = 'display: none';
+  else {
+    // Get user for vote button styling
+    $sql = "SELECT * FROM user WHERE token=:token";
+    $stmt = $db->prepare($sql);
+    $params = array(
+        ":token" => $_COOKIE["token"]
+    );
+    $stmt->execute($params);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!isset($user['team_id'])) {
+      foreach ($teams as $team) {
+        $vote_display[$team['id']] = 'display: block';
         $unvote_display[$team['id']] = 'display: none';
+      }
+    }
+    else{
+      foreach ($teams as $team) {
+        if ($team['id'] == $user['team_id']) {
+          $vote_display[$team['id']] = 'display: none';
+          $unvote_display[$team['id']] = 'display: block';
+        }
+        else {
+          $vote_display[$team['id']] = 'display: none';
+          $unvote_display[$team['id']] = 'display: none';
+        }
       }
     }
   }

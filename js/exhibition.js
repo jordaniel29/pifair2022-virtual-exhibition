@@ -3,7 +3,6 @@ function vote(teamId, vote) {
   var voteBtn = document.getElementsByClassName("vote");
   var unvoteBtn = document.getElementsByClassName("unvote");
 
-  console.log(vote);
   $.ajax({
     type: "post",
     url: "services/vote.php",
