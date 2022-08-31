@@ -1,19 +1,25 @@
-function closeModal(sponsorId) {
-  var ytId = "poster-" + sponsorId;
-  document.getElementById(ytId).src = document.getElementById(ytId).src;
-  var teamModal = document.getElementById("modal-" + sponsorId);
+function closeModalLogo(sponsorId) {
+  var teamModal = document.getElementById("modal-logo-" + sponsorId);
   teamModal.style.display = "none";
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+function closeModalVideo(sponsorId) {
+  var ytId = "youtube-" + sponsorId;
+  document.getElementById(ytId).src = document.getElementById(ytId).src;
+  var teamModal = document.getElementById("modal-video-" + sponsorId);
+  teamModal.style.display = "none";
   var modal = document.getElementById("myModal");
-  if (event.target == modal) {
-    this.closeModal();
-  }
-};
+  modal.style.display = "none";
+}
+
+function closeModalPoster(posterId) {
+  var teamModal = document.getElementById("modal-poster-" + posterId);
+  teamModal.style.display = "none";
+  var modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
 
 /* highliht AFRAME component */
 AFRAME.registerComponent("highlight-hall", {
@@ -31,6 +37,7 @@ AFRAME.registerComponent("highlight-hall", {
   },
 
   onClick: function (evt) {
+    console.log(evt.currentTarget.id);
     var id = "modal-" + evt.currentTarget.id;
     var modal = document.getElementById("myModal");
     modal.style.display = "block";

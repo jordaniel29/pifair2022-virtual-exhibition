@@ -2,10 +2,7 @@
   require_once "services/auth.php";
 
   $data = file_get_contents('json/sponsors.json');
-  $array = json_decode($data, true);
-
-  $data_logo = file_get_contents('json/sponsor-logo.json');
-  $array_logo = json_decode($data_logo, true);
+  $sponsors = json_decode($data, true);
 
 ?>
 
@@ -28,10 +25,10 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
-        <?php foreach ($array_logo as $sponsor_logo) : ?>
+        <?php foreach ($sponsors as $sponsor) : ?>
           <img
-            id="image-<?= $sponsor_logo["id"] ?>"
-            src=<?= $sponsor_logo["image"] ?>
+            id="image-<?= $sponsor["id"] ?>"
+            src=<?= $sponsor["logo"]["url"] ?>
           />
         <?php endforeach;?>
         <a-asset-item id="hall-obj" src="assets/hall.obj"></a-asset-item>
@@ -95,42 +92,60 @@
       ></a-entity>
 
       <a-entity
-        obj-model="obj: #pole-obj; mtl: #pole-mtl;"
+        obj-model="obj: #pole-obj;"
+        color="red"
         position="3 0 0"
         rotation="0 0 0"
         scale="0.0015 0.0015 0.0015"
       ></a-entity>
 
-      <!-- Poster menu -->
-      <a-entity id="menu" highlight-hall>
-        <?php foreach ($array as $sponsor) : ?>
+      <!-- Logo menu -->
+      <a-entity highlight-hall>
+        <?php foreach ($sponsors as $sponsor) : ?>
           <a-entity
-            id="<?= $sponsor["id"] ?>"
-            position= "<?= $sponsor["position"] ?>"
-            rotation= "<?= $sponsor["rotation"] ?>"
+            id="logo-<?= $sponsor["id"] ?>"
+            position= "<?= $sponsor["logo"]["position"] ?>"
+            rotation= "<?= $sponsor["logo"]["rotation"] ?>"
+            mixin="logo"
+            class="raycastable menu-button"
+          >
+            <a-entity
+              material="src: #image-<?= $sponsor["id"] ?>;"
+              mixin="poster"
+            ></a-entity>
+          </a-entity>
+        <?php endforeach;?>
+      </a-entity>
+
+      <!-- Video menu -->
+      <a-entity highlight-hall>
+        <?php foreach ($sponsors as $sponsor) : ?>
+          <a-entity
+            id="video-<?= $sponsor["id"] ?>"
+            position= "<?= $sponsor["video"]["position"] ?>"
+            rotation= "<?= $sponsor["video"]["rotation"] ?>"
             mixin="frame"
-            material="color: green"
+            material="color: white"
             class="raycastable menu-button"
           >
           </a-entity>
         <?php endforeach;?>
       </a-entity>
 
-      <!-- Logo menu -->
-      <a-entity id="menu" highlight-hall>
-        <?php foreach ($array_logo as $sponsor_logo) : ?>
-          <a-entity
-            id="<?= $sponsor_logo["id"] ?>"
-            position= "<?= $sponsor_logo["position"] ?>"
-            rotation= "<?= $sponsor_logo["rotation"] ?>"
-            mixin="logo"
-            class="raycastable menu-button"
-          >
+      <!-- Poster menu -->
+      <a-entity highlight-hall>
+        <?php foreach ($sponsors as $sponsor) : ?>
+          <?php foreach ($sponsor["poster"] as $poster) : ?>
             <a-entity
-              material="src: #image-<?= $sponsor_logo["id"] ?>;"
-              mixin="poster"
-            ></a-entity>
-          </a-entity>
+              id="poster-<?= $poster["id"] ?>"
+              position= "<?= $poster["position"] ?>"
+              rotation= "<?= $poster["rotation"] ?>"
+              mixin="frame"
+              material="color: white"
+              class="raycastable menu-button"
+            >
+            </a-entity>
+          <?php endforeach;?>
         <?php endforeach;?>
       </a-entity>
 
@@ -183,8 +198,9 @@
     <?php include 'navbar.php' ?>
 
     <div id="myModal" class="background">
-      <?php foreach ($array as $sponsor) : ?>
-        <div class="modal" id="modal-<?= $sponsor["id"] ?>">
+      <!-- Modal For Logo -->
+      <?php foreach ($sponsors as $sponsor) : ?>
+        <div class="modal" id="modal-logo-<?= $sponsor["id"] ?>">
           <div class="header">
             <?= $sponsor["name"] ?>
           </div>
@@ -193,12 +209,57 @@
               id="poster-<?= $sponsor["id"] ?>"
               width="480" 
               height="270" 
-              src="<?= $sponsor["image"] ?>"
+              src="<?= $sponsor["logo"]["url"] ?>"
               >
             </img>
           </div>
           <div class="footer">
-            <button class="btn close" onclick="closeModal('<?= $sponsor['id'] ?>')">Close</button>
+            <button class="btn close" onclick="closeModalLogo('<?= $sponsor['id'] ?>')">Close</button>
+          </div>
+        </div>
+      <?php endforeach;?>
+
+      <!-- Modal for Poster -->
+      <?php foreach ($sponsors as $sponsor) : ?>
+        <?php foreach ($sponsor["poster"] as $poster) : ?>
+          <div class="modal" id="modal-poster-<?= $poster["id"] ?>">
+            <div class="body">
+              <img 
+                id="poster-<?= $poster["id"] ?>"
+                width="480" 
+                height="270" 
+                src="<?= $poster["url"] ?>"
+                >
+              </img>
+            </div>
+            <div class="footer">
+              <button class="btn close" onclick="closeModalPoster('<?= $poster['id'] ?>')">Close</button>
+            </div>
+          </div>
+        <?php endforeach;?>
+      <?php endforeach;?>
+
+      <!-- Modal for Video -->
+      <?php foreach ($sponsors as $sponsor) : ?>
+        <div class="modal" id="modal-video-<?= $sponsor["id"] ?>">
+          <div class="header">
+            <?= $sponsor["name"] ?>
+          </div>
+          <div class="body">
+            <iframe 
+            id="youtube-<?= $sponsor["id"] ?>"
+            class="youtube-player"
+            width="750" 
+            height="422" 
+            src="<?= $sponsor["video"]["url"] ?>"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="footer">
+            <button class="btn close" onclick="closeModalVideo('<?= $sponsor['id'] ?>')">Close</button>
           </div>
         </div>
       <?php endforeach;?>
