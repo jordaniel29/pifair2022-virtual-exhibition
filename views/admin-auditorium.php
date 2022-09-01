@@ -2,13 +2,20 @@
   require_once("services/config.php");
   require_once("services/auth-admin.php");
 
-  $data = file_get_contents('json/video.json');
-  $array = json_decode($data, true);
-  $link = $array['link'];
+  // Get youtube link
+  $sql = "SELECT * FROM youtube WHERE page='auditorium'";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $res = $stmt->fetch(PDO::FETCH_ASSOC);
+  $link = $res["src"];
 
   if(isset($_POST['save'])){
-    $array['link'] = $_POST['youtube'];
-    file_put_contents('json/video.json', json_encode($array));
+    $sql = "UPDATE youtube SET src=:src WHERE page='auditorium'";
+    $stmt = $db->prepare($sql);
+    $params = array(
+        ":src" => $_POST['youtube']
+    );
+    $stmt->execute($params);
     echo '<script type="text/javascript">alert("Youtube link has been updated!")</script>';
   }
 ?>

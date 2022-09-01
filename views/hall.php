@@ -1,9 +1,19 @@
 <?php
+  require_once "services/config.php";
   require_once "services/auth.php";
 
+  // Get sponsors from JSON
   $data = file_get_contents('json/sponsors.json');
   $sponsors = json_decode($data, true);
 
+  // Get sponsor's video from SQL
+  $sql = "SELECT * FROM youtube WHERE page='hall'";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $sponsor_video = array();
+  while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $sponsor_video[$res["sponsor_id"]] = $res["src"];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -251,7 +261,7 @@
             class="youtube-player"
             width="750" 
             height="422" 
-            src="<?= $sponsor["video"]["url"] ?>"
+            src="<?= $sponsor_video[$sponsor["id"]] ?>"
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen

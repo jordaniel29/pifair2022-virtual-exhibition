@@ -5,6 +5,15 @@
   // Get sponsors data
   $data = file_get_contents('json/sponsors.json');
   $sponsors = json_decode($data, true);
+
+  // Get sponsors youtube link
+  $sql = "SELECT * FROM youtube WHERE page='hall'";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $sponsor_video = array();
+  while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $sponsor_video[$res["sponsor_id"]] = $res["src"];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +45,7 @@
               </div>
               <div class="team-column">
                 <label class="input-title">Video URL</label>
-                <input name="video-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Video URL" value="<?= $sponsor["video"]["url"] ?>" required />
+                <input name="video-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Video URL" value="<?= $sponsor_video[$sponsor["id"]] ?>" required />
               </div>
               <?php $count = 0 ?>
               <?php foreach ($sponsor["poster"] as $poster) : ?>
