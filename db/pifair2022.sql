@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 30, 2022 at 04:15 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: 127.0.0.1
+-- Generation Time: Sep 02, 2022 at 05:01 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,8 +68,33 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `university`, `team_id`, `is_admin`, `token`) VALUES
-(15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, '8364d7f9b416c64bb15992bf7b4ccb0d'),
-(16, 'Jordan Daniel Joshua', 'jordan@gmail.com', '$2y$10$Awi3GlfVTZEhRepYqBV1.OOj0/ym9ZtIv87Nw0041Rfu2RlJWwzc6', 'Institut Teknologi Bandung', NULL, 0, '0d74679adb63d73929855b3b25465d60');
+(15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, '9e2db730dd6fd9b12fca39d115805a78'),
+(16, 'Jordan Daniel Joshua', 'jordan@gmail.com', '$2y$10$Awi3GlfVTZEhRepYqBV1.OOj0/ym9ZtIv87Nw0041Rfu2RlJWwzc6', 'Institut Teknologi Bandung', NULL, 0, 'b44f51180b9309bf389355c33db28c98'),
+(17, 'Jordan Daniel', 'jordandj2001@gmail.com', '', 'Universitas Indonesia', NULL, 0, '9ae75457085f5d046b3b817e02a829f8'),
+(18, 'User 1', 'user1@gmail.com', '$2y$10$8FXhcXTmsP/k8isgnPWUyORAChK15XynGqlLPVcKAGCa7oJF3lb5.', 'UGM', NULL, 0, 'cb865139d3b2100a510c64b1a3ae8238');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youtube`
+--
+
+CREATE TABLE `youtube` (
+  `page` varchar(255) NOT NULL,
+  `src` varchar(255) NOT NULL,
+  `sponsor_id` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `youtube`
+--
+
+INSERT INTO `youtube` (`page`, `src`, `sponsor_id`) VALUES
+('auditorium', 'https://www.youtube.com/embed/YegJp-E0j0g', ''),
+('hall', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-1'),
+('hall', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-2'),
+('hall', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-3'),
+('hall', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-4');
 
 --
 -- Indexes for dumped tables
@@ -97,7 +122,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
