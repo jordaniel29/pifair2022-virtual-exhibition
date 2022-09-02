@@ -1,1 +1,116 @@
-[{"id":"sponsor-1","name":"Bureau Veritas","phone":"-","instagram":"bureauveritasgroup","type":"gold","logo":{"url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-1.8 2.935 -2.88","rotation":"0 0 0"},"video":{"position":"-5.478 1.565 -3.000","rotation":"0 315 0"},"poster":[{"id":"poster-1-1","url":"https:\/\/i.postimg.cc\/W1dJGJ8q\/poster.jpg","position":"-2.36 1.8 -5.75","rotation":"0 0 0"},{"id":"poster-1-2","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-3.2 1.8 -5.75","rotation":"0 0 0"},{"id":"poster-1-3","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-4.02 1.8 -5.75","rotation":"0 0 0"}]},{"id":"sponsor-2","name":"ExxonMobil","phone":"-","instagram":"exxonmobil_id","type":"silver","logo":{"url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-6.757 2.935 -2.88","rotation":"0 0 0"},"video":{"position":"-8.976 1.565 -3.000","rotation":"0 315 0"},"poster":[{"id":"poster-2-1","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-7.08 1.8 -5.75","rotation":"0 0 0"},{"id":"poster-2-2","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-7.9 1.8 -5.75","rotation":"0 0 0"}]},{"id":"sponsor-3","name":"Transafe","phone":"-","instagram":"transafe_persada","type":"gold","logo":{"url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-8.382 2.935 2.485","rotation":"0 180 0"},"video":{"position":"-4.709 1.565 2.649","rotation":"0 150 0"},"poster":[{"id":"poster-3-1","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-7.82 1.8 5.35","rotation":"0 180 0"},{"id":"poster-3-2","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-6.99 1.8 5.35","rotation":"0 180 0"},{"id":"poster-3-3","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-6.16 1.8 5.35","rotation":"0 180 0"}]},{"id":"sponsor-4","name":"PGN Saka","phone":"-","instagram":"pgnsaka","type":"bronze","logo":{"url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-3.329 2.935 2.485","rotation":"0 180 0"},"video":{"position":"-2.17 1.8 5.35","rotation":"0 180 0"},"poster":[{"id":"poster-4-1","url":"https:\/\/i.postimg.cc\/RFtddr3R\/PIFAIR.png","position":"-2.98 1.8 5.35","rotation":"0 180 0"}]}]
+[
+  {
+    "id": "sponsor-1",
+    "name": "Bureau Veritas",
+    "phone": "-",
+    "instagram": "bureauveritasgroup",
+    "type": "gold",
+    "logo": {
+      "url": "https://i.postimg.cc/cC5YCykf/bureau-veritas.jpg",
+      "position": "-1.8 2.935 -2.88",
+      "rotation": "0 0 0"
+    },
+    "video": { "position": "-5.478 1.565 -3.000", "rotation": "0 315 0" },
+    "poster": [
+      {
+        "id": "poster-1-1",
+        "url": "https://i.postimg.cc/W1dJGJ8q/poster.jpg",
+        "position": "-2.36 1.8 -5.75",
+        "rotation": "0 0 0"
+      },
+      {
+        "id": "poster-1-2",
+        "url": "https://i.postimg.cc/cC5YCykf/bureau-veritas.jpg",
+        "position": "-3.2 1.8 -5.75",
+        "rotation": "0 0 0"
+      },
+      {
+        "id": "poster-1-3",
+        "url": "https://i.postimg.cc/cC5YCykf/bureau-veritas.jpg",
+        "position": "-4.02 1.8 -5.75",
+        "rotation": "0 0 0"
+      }
+    ]
+  },
+  {
+    "id": "sponsor-2",
+    "name": "ExxonMobil",
+    "phone": "-",
+    "instagram": "exxonmobil_id",
+    "type": "silver",
+    "logo": {
+      "url": "https://i.postimg.cc/3JrMXMS2/exxon.png",
+      "position": "-6.757 2.935 -2.88",
+      "rotation": "0 0 0"
+    },
+    "video": { "position": "-8.976 1.565 -3.000", "rotation": "0 315 0" },
+    "poster": [
+      {
+        "id": "poster-2-1",
+        "url": "https://i.postimg.cc/3JrMXMS2/exxon.png",
+        "position": "-7.08 1.8 -5.75",
+        "rotation": "0 0 0"
+      },
+      {
+        "id": "poster-2-2",
+        "url": "https://i.postimg.cc/3JrMXMS2/exxon.png",
+        "position": "-7.9 1.8 -5.75",
+        "rotation": "0 0 0"
+      }
+    ]
+  },
+  {
+    "id": "sponsor-3",
+    "name": "Transafe",
+    "phone": "-",
+    "instagram": "transafe_persada",
+    "type": "gold",
+    "logo": {
+      "url": "https://i.postimg.cc/h4NgV4z6/transafe.png",
+      "position": "-8.382 2.935 2.485",
+      "rotation": "0 180 0"
+    },
+    "video": { "position": "-4.709 1.565 2.649", "rotation": "0 150 0" },
+    "poster": [
+      {
+        "id": "poster-3-1",
+        "url": "https://i.postimg.cc/h4NgV4z6/transafe.png",
+        "position": "-7.82 1.8 5.35",
+        "rotation": "0 180 0"
+      },
+      {
+        "id": "poster-3-2",
+        "url": "https://i.postimg.cc/h4NgV4z6/transafe.png",
+        "position": "-6.99 1.8 5.35",
+        "rotation": "0 180 0"
+      },
+      {
+        "id": "poster-3-3",
+        "url": "https://i.postimg.cc/h4NgV4z6/transafe.png",
+        "position": "-6.16 1.8 5.35",
+        "rotation": "0 180 0"
+      }
+    ]
+  },
+  {
+    "id": "sponsor-4",
+    "name": "PGN Saka",
+    "phone": "-",
+    "instagram": "pgnsaka",
+    "type": "bronze",
+    "logo": {
+      "url": "https://i.postimg.cc/qvy8p7yT/pgn-saka.png",
+      "position": "-3.329 2.935 2.485",
+      "rotation": "0 180 0"
+    },
+    "video": { "position": "-2.17 1.8 5.35", "rotation": "0 180 0" },
+    "poster": [
+      {
+        "id": "poster-4-1",
+        "url": "https://i.postimg.cc/qvy8p7yT/pgn-saka.png",
+        "position": "-2.98 1.8 5.35",
+        "rotation": "0 180 0"
+      }
+    ]
+  }
+]

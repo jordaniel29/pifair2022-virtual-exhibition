@@ -69,8 +69,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `university`, `team_id`, `is_admin`, `token`) VALUES
 (15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, '9e2db730dd6fd9b12fca39d115805a78'),
-(16, 'Jordan Daniel Joshua', 'jordan@gmail.com', '$2y$10$Awi3GlfVTZEhRepYqBV1.OOj0/ym9ZtIv87Nw0041Rfu2RlJWwzc6', 'Institut Teknologi Bandung', NULL, 0, 'b44f51180b9309bf389355c33db28c98'),
-(17, 'Jordan Daniel', 'jordandj2001@gmail.com', '', 'Universitas Indonesia', NULL, 0, '9ae75457085f5d046b3b817e02a829f8'),
 (18, 'User 1', 'user1@gmail.com', '$2y$10$8FXhcXTmsP/k8isgnPWUyORAChK15XynGqlLPVcKAGCa7oJF3lb5.', 'UGM', NULL, 0, 'cb865139d3b2100a510c64b1a3ae8238');
 
 -- --------------------------------------------------------

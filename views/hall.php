@@ -56,6 +56,7 @@
         <img id="ceil" src="assets/ceil-hall.png" />
         <img id="floor" src="assets/checkered-hall.png" />
         <img id="clickme" src="assets/click-me-sm.png" />
+        <img id="play" src="assets/play.png" />
 
         <a-mixin
           id="frame"
@@ -147,7 +148,7 @@
             position= "<?= $sponsor["video"]["position"] ?>"
             rotation= "<?= $sponsor["video"]["rotation"] ?>"
             mixin="frame"
-            material="src: #clickme"
+            material="src: #play"
             class="raycastable menu-button"
           >
           </a-entity>
@@ -163,7 +164,7 @@
               position= "<?= $poster["position"] ?>"
               rotation= "<?= $poster["rotation"] ?>"
               mixin="frame"
-              material="color: white"
+              material="src: #clickme"
               class="raycastable menu-button"
             >
             </a-entity>
@@ -259,15 +260,18 @@
       <?php foreach ($sponsors as $sponsor) : ?>
         <?php foreach ($sponsor["poster"] as $poster) : ?>
           <div class="modal-poster" id="modal-poster-<?= $poster["id"] ?>">
-            <div class="body">
+            <div class="header">
+              <?= $sponsor["name"] ?>
+            </div>
+            <div class="body-hall">
               <img 
+                class="poster-img"
                 id="poster-<?= $poster["id"] ?>"
-                max-height="540" 
                 src="<?= $poster["url"] ?>"
                 >
               </img>
             </div>
-            <div class="footer">
+            <div class="footer-hall">
               <button class="btn close" onclick="closeModalPoster('<?= $poster['id'] ?>')">Close</button>
             </div>
           </div>
