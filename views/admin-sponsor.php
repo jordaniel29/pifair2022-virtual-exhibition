@@ -40,6 +40,14 @@
             <div class="team">
               <div class="team-title"><?= $sponsor["name"] ?></div>
               <div class="team-column">
+                <label class="input-title">Phone</label>
+                <input name="phone-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Phone Number" value="<?= $sponsor["phone"]?>" required />
+              </div>
+              <div class="team-column">
+                <label class="input-title">Instagram</label>
+                <input name="instagram-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Instagram Username" value="<?= $sponsor["instagram"]?>" required />
+              </div>
+                <div class="team-column">
                 <label class="input-title">Logo URL</label>
                 <input name="logo-<?= $sponsor["id"] ?>" class="input" type="text" placeholder="Logo URL" value="<?= $sponsor["logo"]["url"]?>" required />
               </div>

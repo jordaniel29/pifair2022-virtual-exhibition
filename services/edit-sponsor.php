@@ -18,6 +18,8 @@
       
       // Update JSON
       $sponsors[$key]["logo"]["url"] = $_POST["logo-".$sponsor["id"]];
+      $sponsors[$key]["phone"] = $_POST["phone-".$sponsor["id"]];
+      $sponsors[$key]["instagram"] = $_POST["instagram-".$sponsor["id"]];
       foreach ($sponsor["poster"] as $key2 => $poster) {
         $sponsors[$key]["poster"][$key2]["url"] = $_POST["poster-".$poster["id"]];
       }

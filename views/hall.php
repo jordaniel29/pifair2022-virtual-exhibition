@@ -24,7 +24,10 @@
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="js/hall.js"></script>
+    <script src="js/door.js"></script>
     <link rel="stylesheet" href="css/exhibition.css" />
+    <link rel="stylesheet" href="css/hall.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <a-scene
@@ -45,17 +48,19 @@
         <a-asset-item id="hall-mtl" src="assets/hall.mtl"></a-asset-item>
         <a-asset-item id="pole-obj" src="assets/pole.obj"></a-asset-item>
         <a-asset-item id="pole-mtl" src="assets/pole.mtl"></a-asset-item>
+        <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
+        <a-asset-item id="door-mtl" src="assets/door.mtl"></a-asset-item>
 
-        <img id="cursor" src="assets/clickme.png" />
         <img id="wallnew3" src="assets/wallnew3.png" />
         <img id="beigewall" src="assets/beige-hall.png" />
         <img id="ceil" src="assets/ceil-hall.png" />
         <img id="floor" src="assets/checkered-hall.png" />
+        <img id="clickme" src="assets/click-me-sm.png" />
 
         <a-mixin
           id="frame"
           geometry="primitive: circle; radius: 0.1"
-          material="color: black; shader: flat"
+          material="color: white; shader: flat"
           animation__scale="property: scale; to: 1.02 1.02 1.02; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
@@ -71,6 +76,13 @@
           material="color: white; shader: flat"
           material="shader: flat"
           position="0 0 0.005"
+        ></a-mixin>
+        <a-mixin
+          id="door"
+          geometry="primitive: plane; width: 4; height: 4"
+          material="opacity: 0.0; transparent: true"
+          animation__scale="property: scale; to: 0.022 0.022 0.022; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 0.02 0.02 0.02; dur: 200; startEvents: mouseleave"
         ></a-mixin>
       </a-assets>
 
@@ -135,7 +147,7 @@
             position= "<?= $sponsor["video"]["position"] ?>"
             rotation= "<?= $sponsor["video"]["rotation"] ?>"
             mixin="frame"
-            material="color: white"
+            material="src: #clickme"
             class="raycastable menu-button"
           >
           </a-entity>
@@ -159,6 +171,19 @@
         <?php endforeach;?>
       </a-entity>
 
+      <!-- Door Object -->
+      <a-entity door>
+        <a-entity
+          id="lobby"
+          mixin="door"
+          obj-model="obj: #door-obj; mtl: #door-mtl;"
+          position="-16 -0.2 0"
+          rotation="0 -90 0"
+          scale="0.02 0.02 0.02"
+          class="raycastable menu-button"
+        ></a-entity>
+      <a-entity door>
+
       <!-- Walls -->
       <a-plane
         position="-3.5 3 -14"
@@ -168,7 +193,7 @@
         src="#wallnew3"
       ></a-plane>
       <a-plane
-        position="11.5 3 -0.5"
+        position="9.5 3 -0.5"
         rotation="0 -90 0"
         width="27"
         height="6"
@@ -182,7 +207,7 @@
         src="#wallnew3"
       ></a-plane>
       <a-plane
-        position="-19 3 -0.5"
+        position="-15 3 -0.5"
         rotation="0 90 0"
         width="27"
         height="6"
@@ -214,14 +239,15 @@
           <div class="header">
             <?= $sponsor["name"] ?>
           </div>
-          <div class="body">
-            <img 
-              id="poster-<?= $sponsor["id"] ?>"
-              width="480" 
-              height="270" 
-              src="<?= $sponsor["logo"]["url"] ?>"
-              >
-            </img>
+          <div class="body-contact">
+            <a href="https://wa.me/<?= $sponsor["phone"] ?>" target="_blank" class="contact">
+              <i class="fa fa-whatsapp" style="font-size:48px"></i>
+              <span>&nbsp <?= $sponsor["phone"] ?></span>
+            </a>
+            <a href="https://www.instagram.com/<?= $sponsor["instagram"]?>" target="_blank" class="contact">
+              <i class="fa fa-instagram" style="font-size:48px"></i>
+              <span>&nbsp <?= $sponsor["instagram"] ?></span>
+            </a>
           </div>
           <div class="footer">
             <button class="btn close" onclick="closeModalLogo('<?= $sponsor['id'] ?>')">Close</button>
@@ -232,12 +258,11 @@
       <!-- Modal for Poster -->
       <?php foreach ($sponsors as $sponsor) : ?>
         <?php foreach ($sponsor["poster"] as $poster) : ?>
-          <div class="modal" id="modal-poster-<?= $poster["id"] ?>">
+          <div class="modal-poster" id="modal-poster-<?= $poster["id"] ?>">
             <div class="body">
               <img 
                 id="poster-<?= $poster["id"] ?>"
-                width="480" 
-                height="270" 
+                max-height="540" 
                 src="<?= $poster["url"] ?>"
                 >
               </img>

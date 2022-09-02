@@ -64,6 +64,7 @@
     <script src="js/aframe-master.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/exhibition.js"></script>
+    <script src="js/door.js"></script>
     <link rel="stylesheet" href="css/exhibition.css" />
   </head>
   <body>
@@ -90,11 +91,8 @@
         <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
         <a-asset-item id="door-mtl" src="assets/door.mtl"></a-asset-item>
 
-        <img id="wall" src="assets/pifair.png" />
-        <img id="wall2" src="assets/pifair2.png" />
         <img id="wallnew" src="assets/wallnew.jpg" />
         <img id="wallnew2" src="assets/wallnew2.png" />
-        <img id="exhall" src="assets/exhall.jpg" />
         <img id="floor" src="assets/checkered-exhibition.png" />
         <img id="ceil" src="assets/exhibition-ceil.png" />
         
@@ -167,7 +165,7 @@
       ></a-entity>
 
       <!-- Door Object -->
-      <a-entity highlight-exhibition>
+      <a-entity door>
         <a-entity
           id="lobby"
           mixin="door"
@@ -177,7 +175,7 @@
           scale="0.02 0.02 0.02"
           class="raycastable menu-button"
         ></a-entity>
-      <a-entity highlight-exhibition>
+      <a-entity>
 
       <!-- Hand controls -->
       <a-entity

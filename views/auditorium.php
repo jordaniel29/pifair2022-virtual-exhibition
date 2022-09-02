@@ -18,6 +18,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <script src="js/aframe-master.js"></script>
     <script src="js/auditorium.js"></script>
+    <script src="js/door.js"></script>
     <link rel="stylesheet" href="css/auditorium.css" />
   </head>
   <body>
@@ -28,8 +29,19 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
+        <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
+        <a-asset-item id="door-mtl" src="assets/door.mtl"></a-asset-item>
+        
         <img id="teather" src="assets/auditorium.jpg" />
         <img id="film" src="assets/play.webp" />
+        
+        <a-mixin
+          id="door"
+          geometry="primitive: plane; width: 4; height: 4"
+          material="opacity: 0.0; transparent: true"
+          animation__scale="property: scale; to: 0.022 0.032 0.022; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 0.02 0.03 0.02; dur: 200; startEvents: mouseleave"
+        ></a-mixin>
       </a-assets>
 
       <!-- Camera -->
@@ -40,8 +52,10 @@
       >
       </a-entity>
 
+      <!-- Teather Image -->
       <a-sky src="#teather" rotation="0 -90 0"></a-sky>
 
+      <!-- Screen Object -->
       <a-entity id="menu" video>
         <a-curvedimage
           src="#film"
@@ -56,6 +70,20 @@
         >
         </a-curvedimage>
       </a-entity>
+
+      
+      <!-- Door Object -->
+      <a-entity door>
+        <a-entity
+          id="lobby"
+          mixin="door"
+          obj-model="obj: #door-obj; mtl: #door-mtl;"
+          position="16 -4.5 -23"
+          rotation="0 90 0"
+          scale="0.02 0.03 0.02"
+          class="raycastable menu-button"
+        ></a-entity>
+      <a-entity door>
     </a-scene>
 
     <?php include 'navbar.php' ?>
