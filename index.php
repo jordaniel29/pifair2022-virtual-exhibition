@@ -20,14 +20,14 @@
         case $me.'/lobby' :
             require "views/lobby.php";
             break;
-        case $me.'/exhibition' :
-            require "views/exhibition.php";
+        case $me.'/voting' :
+            require "views/voting.php";
             break;
         case $me.'/auditorium' :
             require "views/auditorium.php";
             break;
-        case $me.'/hall' :
-            require "views/hall.php";
+        case $me.'/exhibition' :
+            require "views/exhibition.php";
             break;
         case $me.'/add-university' :
             require "views/add-university.php";

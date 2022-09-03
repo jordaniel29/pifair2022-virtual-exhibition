@@ -3,6 +3,19 @@ body {
   margin: 0;
   font-family: "Trebuchet MS", sans-serif;
 }
+.modal-poster {
+  display: none;
+  position: absolute;
+  max-height: 100vh;
+  width: 760px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #292f51;
+  border-radius: 10px;
+  padding: 10px;
+  align-items: inherit;
+}
 .background {
   display: none;
   position: fixed;
@@ -14,61 +27,72 @@ body {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
 }
-.modal {
-  display: none;
+.body-exhibition {
+  padding: 10px 0;
+  width: 100%;
+  max-width: 100vw;
+  display: block;
+  margin: auto;
+  max-height: 95vh;
+}
+.modal-contact {
   position: absolute;
-  width: 760px;
-  top: calc(50% - 283px);
-  left: calc(50% - 390px);
+  width: 680px;
+  top: calc(50% - 91px);
+  left: calc(50% - 350px);
   background-color: #292f51;
   border-radius: 10px;
   padding: 10px;
 }
-.header {
+.header-contact {
   padding: 10px;
   color: white;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 40px;
   text-align: center;
 }
-.body {
-  padding: 10px 0;
+.body-contact {
+  padding: 24px 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
-.youtube-player {
-  border-radius: 10px;
-}
-.footer {
-  display: flex;
-  justify-content: flex-end;
-}
-.btn {
-  width: 120px;
-  height: 40px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 10px;
+.contact {
+  color: white;
   font-weight: 700;
-  font-size: 16px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)) top/100% 800%;
-  transition: 0.5s;
-  cursor: pointer;
-  margin-bottom: 5px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
-.vote {
-  background-color: #e38545;
-  color: white;
+.contact:hover {
+  color: rgb(224, 213, 213);
 }
-.unvote {
-  background-color: #ea2c2c;
-  color: white;
+.poster-img {
+  display: block;
+  margin: auto;
+  min-height: 0;
+  overflow-y: scroll;
+  max-width: 650px;
+  max-height: 80vh;
 }
-.close {
+.footer-exhibition {
+  display: block;
+  float: right;
+}
+.wasd-container {
+  z-index: 9999;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  padding: 4px 12px;
   background-color: white;
-  color: black;
-}
-.btn:hover {
-  background-position: bottom;
+  border-radius: 8px;
+  border: solid 4px #292f51;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #292f51;
 }

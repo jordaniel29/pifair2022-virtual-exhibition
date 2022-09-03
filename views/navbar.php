@@ -9,10 +9,10 @@ echo '
   <a href="lobby" class="icons-container">
     <span class="material-symbols-outlined icons"> home </span>
   </a>
-  <a href="hall" class="icons-container">
+  <a href="exhibition" class="icons-container">
     <span class="material-symbols-outlined icons"> museum </span>
   </a>
-  <a href="exhibition" class="icons-container">
+  <a href="voting" class="icons-container">
     <span class="material-symbols-outlined icons"> how_to_vote </span>
   </a>
   <a href="auditorium" class="icons-container">

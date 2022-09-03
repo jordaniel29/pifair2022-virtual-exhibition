@@ -50,7 +50,7 @@
       <!-- Left Door -->
       <a-entity highlight-lobby>
         <a-entity
-          id="hall"
+          id="exhibition"
           mixin="object"
           position="-10 1.7 -13"
           rotation="0 50 0"
@@ -65,7 +65,7 @@
           ></a-entity>
           <a-text
             font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-            value="Hall"
+            value="Exhibition"
             scale="3.5 3.5 3.5"
             position="-0.5 2.5 1"
             align="center"
@@ -76,7 +76,7 @@
       <!-- Behind Door -->
       <a-entity highlight-lobby>
         <a-entity
-          id="exhibition"
+          id="voting"
           mixin="object"
           position="-15 1.4 1.9"
           rotation="0 90 0"
@@ -91,7 +91,7 @@
           ></a-entity>
           <a-text
             font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
-            value="Exhibition"
+            value="Voting"
             scale="3.5 3.5 3.5"
             position="-0.3 2.5 1"
             align="center"

@@ -7,7 +7,7 @@
   $sponsors = json_decode($data, true);
 
   // Get sponsors youtube link
-  $sql = "SELECT * FROM youtube WHERE page='hall'";
+  $sql = "SELECT * FROM youtube WHERE page='exhibition'";
   $stmt = $db->prepare($sql);
   $stmt->execute();
   $sponsor_video = array();
