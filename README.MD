@@ -41,10 +41,10 @@ A virtual exhibition for PI FAIR's competition website. It is made using A-Frame
 3. Lobby Page
    ![](https://i.postimg.cc/Y0kMJb6g/lobby.png)
 
-4. Main Hall Page
+4. Exhibition Page
    ![](https://i.postimg.cc/RhR49KdY/Hall.png)
 
-5. Exhibition Page
+5. Voting Page
    ![](https://i.postimg.cc/xCV2ztF7/exhibition.png)
 
 6. Auditorium Page
@@ -74,8 +74,8 @@ A virtual exhibition for PI FAIR's competition website. It is made using A-Frame
 2. User
 
 - In the lobby page, users can navigate to other pages in the website through the door object. User can also view the contacts of the website through lobby helpdesk. User can watch trailer of the event through te tv object
-- In the hall page, user can see the list of the event's sponsors through the booth object. A booth contains the company's logo, contact information, video, and posters
-- In the exhibition page, user can see the teams participating in the competition. User can also vote one of the team by clicking on the team's picture
+- In the exhibition page, user can see the list of the event's sponsors through the booth object. A booth contains the company's logo, contact information, video, and posters
+- In the voting page, user can see the teams participating in the competition. User can also vote one of the team by clicking on the team's picture
 - In the auditorium page, user can watch the event's video by clicking on the teather screen.
 - User can navigate through pages using the door object or the side navbar that is available in every page.
 

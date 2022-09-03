@@ -89,10 +89,10 @@ CREATE TABLE `youtube` (
 
 INSERT INTO `youtube` (`page`, `src`, `sponsor_id`) VALUES
 ('auditorium', 'https://www.youtube.com/embed/YegJp-E0j0g', ''),
-('hall', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-1'),
-('hall', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-2'),
-('hall', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-3'),
-('hall', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-4');
+('exhibition', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-1'),
+('exhibition', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-2'),
+('exhibition', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-3'),
+('exhibition', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-4');
 
 --
 -- Indexes for dumped tables
