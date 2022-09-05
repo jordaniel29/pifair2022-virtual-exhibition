@@ -235,7 +235,7 @@
 
     <!-- WASD Button Right Below -->
     <div class="wasd-container">
-      WASD
+      <img src="assets/wasd1.png" class="wasd-image">
     </div>
 
     <div id="myModal" class="background">
