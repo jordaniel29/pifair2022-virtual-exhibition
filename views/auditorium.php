@@ -34,13 +34,13 @@
         
         <img id="teather" src="assets/auditorium.jpg" />
         <img id="film" src="assets/play.webp" />
-        
+
         <a-mixin
           id="door"
           geometry="primitive: plane; width: 4; height: 4"
           material="opacity: 0.0; transparent: true"
-          animation__scale="property: scale; to: 0.022 0.032 0.022; dur: 200; startEvents: mouseenter"
-          animation__scale_reverse="property: scale; to: 0.02 0.03 0.02; dur: 200; startEvents: mouseleave"
+          animation__scale="property: scale; to: 1.05 1.26 1.05; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1 1.2 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
       </a-assets>
 
@@ -71,19 +71,31 @@
         </a-curvedimage>
       </a-entity>
 
-      
       <!-- Door Object -->
       <a-entity door>
         <a-entity
           id="lobby"
           mixin="door"
-          obj-model="obj: #door-obj; mtl: #door-mtl;"
-          position="16 -4.5 -23"
-          rotation="0 90 0"
-          scale="0.02 0.03 0.02"
+          position="15 -1.7 -23"
+          rotation="0 -90 0"
+          scale="1 1.2 1"
           class="raycastable menu-button"
-        ></a-entity>
-      <a-entity door>
+        >
+          <a-entity
+            obj-model="obj: #door-obj; mtl: #door-mtl;"
+            rotation="0 180 0"
+            position="1.5 -2 0"
+            scale="0.025 0.025 0.025"
+          ></a-entity>
+          <a-text
+            font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+            value="Lobby"
+            scale="3.5 3.5 3.5"
+            position="1.59 2.5 1"
+            align="center"
+          ></a-text>
+        </a-entity>
+      </a-entity>
     </a-scene>
 
     <?php include 'navbar.php' ?>

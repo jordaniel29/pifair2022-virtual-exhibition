@@ -79,11 +79,11 @@ AFRAME.registerComponent("limit-my-distance-exhibition", {
     }
 
     // limit X
-    if (this.el.object3D.position.x > 11) {
-      this.el.object3D.position.x = 11;
+    if (this.el.object3D.position.x > 9.2) {
+      this.el.object3D.position.x = 9.2;
     }
-    if (this.el.object3D.position.x < -18.5) {
-      this.el.object3D.position.x = -18.5;
+    if (this.el.object3D.position.x < -14.7) {
+      this.el.object3D.position.x = -14.7;
     }
   },
 });

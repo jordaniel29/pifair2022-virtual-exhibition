@@ -43,7 +43,7 @@
       "position": "-6.757 2.935 -2.88",
       "rotation": "0 0 0"
     },
-    "video": { "position": "-8.976 1.565 -3.000", "rotation": "0 315 0" },
+    "video": { "position": "-9.016 1.565 -3.040", "rotation": "0 315 0" },
     "poster": [
       {
         "id": "poster-2-1",
@@ -70,7 +70,7 @@
       "position": "-8.382 2.935 2.485",
       "rotation": "0 180 0"
     },
-    "video": { "position": "-4.709 1.565 2.649", "rotation": "0 150 0" },
+    "video": { "position": "-4.729 1.565 2.649", "rotation": "0 140 0" },
     "poster": [
       {
         "id": "poster-3-1",

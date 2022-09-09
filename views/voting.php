@@ -111,13 +111,13 @@
           material="shader: flat"
           position="0 0 0.005"
         ></a-mixin>
-
+        
         <a-mixin
           id="door"
           geometry="primitive: plane; width: 4; height: 4"
           material="opacity: 0.0; transparent: true"
-          animation__scale="property: scale; to: 0.022 0.022 0.022; dur: 200; startEvents: mouseenter"
-          animation__scale_reverse="property: scale; to: 0.02 0.02 0.02; dur: 200; startEvents: mouseleave"
+          animation__scale="property: scale; to: 0.63 0.63 0.63; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 0.6 0.6 0.6; dur: 200; startEvents: mouseleave"
         ></a-mixin>
       </a-assets>
 
@@ -169,13 +169,26 @@
         <a-entity
           id="lobby"
           mixin="door"
-          obj-model="obj: #door-obj; mtl: #door-mtl;"
-          position="0 -0.2 12.7"
-          rotation="0 0 0"
-          scale="0.02 0.02 0.02"
+          position="0 1.5 11"
+          rotation="0 180 0"
+          scale="0.6 0.6 0.6"
           class="raycastable menu-button"
-        ></a-entity>
-      <a-entity>
+        >
+          <a-entity
+            obj-model="obj: #door-obj; mtl: #door-mtl;"
+            rotation="0 180 0"
+            position="-0.090 -2 0"
+            scale="0.025 0.025 0.025"
+          ></a-entity>
+          <a-text
+            font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+            value="Lobby"
+            scale="3.5 3.5 3.5"
+            position="0 2.5 1"
+            align="center"
+          ></a-text>
+        </a-entity>
+      </a-entity>
 
       <!-- Hand controls -->
       <a-entity
