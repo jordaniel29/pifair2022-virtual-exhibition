@@ -177,7 +177,7 @@
         <a-entity
           id="lobby"
           mixin="door"
-          position="-16 1.8 0"
+          position="-15.8 1.8 0"
           rotation="0 90 0"
           scale="1 1 1"
           class="raycastable menu-button"
