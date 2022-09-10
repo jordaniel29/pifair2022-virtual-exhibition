@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2022 at 05:01 PM
+-- Generation Time: Sep 10, 2022 at 04:39 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -49,6 +49,28 @@ INSERT INTO `team` (`id`, `team_name`, `team_youtube`, `team_image`, `position`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tv`
+--
+
+CREATE TABLE `tv` (
+  `id` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `youtube` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tv`
+--
+
+INSERT INTO `tv` (`id`, `image`, `youtube`, `position`) VALUES
+('tv-1', 'assets/logo2.png', 'https://www.youtube.com/embed/YegJp-E0j0g', '9.4 2.5 -5.5'),
+('tv-2', 'assets/logo2.png', 'https://www.youtube.com/embed/4q4vpQCIZ6w', '9.4 2.5 0'),
+('tv-3', 'assets/logo2.png', 'https://www.youtube.com/embed/uj-fZfscY9Y', '9.4 2.5 5.5');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -68,8 +90,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `university`, `team_id`, `is_admin`, `token`) VALUES
-(15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, '9e2db730dd6fd9b12fca39d115805a78'),
-(18, 'User 1', 'user1@gmail.com', '$2y$10$8FXhcXTmsP/k8isgnPWUyORAChK15XynGqlLPVcKAGCa7oJF3lb5.', 'UGM', NULL, 0, 'cb865139d3b2100a510c64b1a3ae8238');
+(15, 'Pifair 2022 Admin', 'pifair-admin@gmail.com', '$2y$10$NjdwhU61V6dem.bYZ9G9VeWbutwZwVA5kN3ZbdruJvaxP4klq39em', 'Universitas Trisakti', NULL, 1, '9cf07642f1c9c551bdb897edce9f5324'),
+(18, 'User 1', 'user1@gmail.com', '$2y$10$8FXhcXTmsP/k8isgnPWUyORAChK15XynGqlLPVcKAGCa7oJF3lb5.', 'UGM', NULL, 0, '7f75ca35127e049371e0123af0519321');
 
 -- --------------------------------------------------------
 
@@ -90,9 +112,9 @@ CREATE TABLE `youtube` (
 INSERT INTO `youtube` (`page`, `src`, `sponsor_id`) VALUES
 ('auditorium', 'https://www.youtube.com/embed/YegJp-E0j0g', ''),
 ('exhibition', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-1'),
-('exhibition', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-2'),
-('exhibition', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-3'),
-('exhibition', 'https:/www.youtube.com/embed/YegJp-E0j0g', 'sponsor-4');
+('exhibition', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-2'),
+('exhibition', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-3'),
+('exhibition', 'https://www.youtube.com/embed/uj-fZfscY9Y', 'sponsor-4');
 
 --
 -- Indexes for dumped tables
@@ -102,8 +124,7 @@ INSERT INTO `youtube` (`page`, `src`, `sponsor_id`) VALUES
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`team_name`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`

@@ -41,6 +41,9 @@
         case $me.'/admin-team' :
             require "views/admin-team.php";
             break;
+        case $me.'/admin-tv' :
+            require "views/admin-tv.php";
+            break;
         case $me.'/admin-sponsor' :
             require "views/admin-sponsor.php";
             break;

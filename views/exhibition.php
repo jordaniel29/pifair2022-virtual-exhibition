@@ -15,27 +15,14 @@
     $sponsor_video[$res["sponsor_id"]] = $res["src"];
   }
 
-  // Static data for TVs
-  $tvs = [
-    [
-      "id" => "tv-1", 
-      "image" => "assets/logo2.png", 
-      "youtube" => "https://www.youtube.com/embed/YegJp-E0j0g",
-      "position" => "9.4 3 -5.5"
-    ],
-    [
-      "id" => "tv-2", 
-      "image" => "assets/logo2.png", 
-      "youtube" => "https://www.youtube.com/embed/4q4vpQCIZ6w",
-      "position" => "9.4 3 0"
-    ],
-    [
-      "id" => "tv-3", 
-      "image" => "assets/logo2.png", 
-      "youtube" => "https://www.youtube.com/embed/uj-fZfscY9Y",
-      "position" => "9.4 3 5.5"
-    ],
-  ]
+  // Get tv's video and image from SQL
+  $sql = "SELECT * FROM tv";
+  $stmt = $db->prepare($sql);
+  $stmt->execute();
+  $tvs = array();
+  while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
+    array_push($tvs, $res);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -211,6 +198,14 @@
       </a-entity>
       
       <!-- TV Object -->
+      <a-text
+        font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+        value="Sponsor Exhibition"
+        scale="3.5 3.5 3.5"
+        position="9.4 5 0"
+        rotation="0 -90 0"
+        align="center"
+      ></a-text>
       <a-entity highlight-exhibition>
         <?php foreach ($tvs as $tv) : ?>
           <a-entity
@@ -232,7 +227,7 @@
         </a-entity>
         <?php endforeach;?>
       </a-entity>
-      
+
       <!-- Door Object -->
       <a-entity door>
         <a-entity

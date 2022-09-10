@@ -11,9 +11,11 @@ echo'
   </div>
   <div class="admin-menu-row">
     <a href="admin" class="admin-menu-name">Home</a>
+    <a href="admin-sponsor" class="admin-menu-name">Sponsors</a>
+    <a href="admin-tv" class="admin-menu-name">Exhibition-TVs</a>
     <a href="admin-team" class="admin-menu-name">Teams</a>
     <a href="admin-auditorium" class="admin-menu-name">Auditorium</a>
-    <a href="admin-sponsor" class="admin-menu-name">Sponsors</a>
+    <a href="admin-instructions" class="admin-menu-name">Instructions</a>
     <a href="services/logout.php" class="admin-menu-name logout">
       <span class="material-symbols-outlined icons" style="position: relative; top: 6px;"> logout </span>
       Logout
