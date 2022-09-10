@@ -44,8 +44,8 @@
             src=<?= $sponsor["logo"]["url"] ?>
           />
         <?php endforeach;?>
-        <a-asset-item id="hall-obj" src="assets/hall.obj"></a-asset-item>
-        <a-asset-item id="hall-mtl" src="assets/hall.mtl"></a-asset-item>
+        <a-asset-item id="hall-obj" src="assets/booth.obj"></a-asset-item>
+        <a-asset-item id="hall-mtl" src="assets/booth.mtl"></a-asset-item>
         <a-asset-item id="pole-obj" src="assets/pole.obj"></a-asset-item>
         <a-asset-item id="pole-mtl" src="assets/pole.mtl"></a-asset-item>
         <a-asset-item id="door-obj" src="assets/door.obj"></a-asset-item>
