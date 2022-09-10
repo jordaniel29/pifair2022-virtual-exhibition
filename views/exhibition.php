@@ -14,6 +14,28 @@
   while ($res = $stmt->fetch(PDO::FETCH_ASSOC)){
     $sponsor_video[$res["sponsor_id"]] = $res["src"];
   }
+
+  // Static data for TVs
+  $tvs = [
+    [
+      "id" => "tv-1", 
+      "image" => "assets/logo2.png", 
+      "youtube" => "https://www.youtube.com/embed/YegJp-E0j0g",
+      "position" => "9.4 3 -5.5"
+    ],
+    [
+      "id" => "tv-2", 
+      "image" => "assets/logo2.png", 
+      "youtube" => "https://www.youtube.com/embed/4q4vpQCIZ6w",
+      "position" => "9.4 3 0"
+    ],
+    [
+      "id" => "tv-3", 
+      "image" => "assets/logo2.png", 
+      "youtube" => "https://www.youtube.com/embed/uj-fZfscY9Y",
+      "position" => "9.4 3 5.5"
+    ],
+  ]
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +60,6 @@
       raycaster="objects: .raycastable"
     >
       <a-assets>
-        <?php foreach ($sponsors as $sponsor) : ?>
-          <img
-            id="image-<?= $sponsor["id"] ?>"
-            src=<?= $sponsor["logo"]["url"] ?>
-          />
-        <?php endforeach;?>
         <a-asset-item id="hall-obj" src="assets/booth.obj"></a-asset-item>
         <a-asset-item id="hall-mtl" src="assets/booth.mtl"></a-asset-item>
         <a-asset-item id="pole-obj" src="assets/pole.obj"></a-asset-item>
@@ -58,6 +74,20 @@
         <img id="clickme" src="assets/click-me-sm.png" />
         <img id="play" src="assets/play.png" />
         <img id="logo" src="assets/logo2.png" />
+
+        <?php foreach ($sponsors as $sponsor) : ?>
+          <img
+            id="image-<?= $sponsor["id"] ?>"
+            src=<?= $sponsor["logo"]["url"] ?>
+          />
+        <?php endforeach;?>
+
+        <?php foreach ($tvs as $tv) : ?>
+          <img
+            id="image-<?= $tv["id"] ?>"
+            src=<?= $tv["image"] ?>
+          />
+        <?php endforeach;?>
 
         <a-mixin
           id="frame"
@@ -87,7 +117,7 @@
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
         ></a-mixin>
         <a-mixin
-          id="object"
+          id="tv"
           geometry="primitive: plane; width: 4; height: 4"
           material="opacity: 0.0; transparent: true"
           animation__scale="property: scale; to: 1.4 1.4 1.4; dur: 200; startEvents: mouseenter"
@@ -179,7 +209,30 @@
           <?php endforeach;?>
         <?php endforeach;?>
       </a-entity>
-
+      
+      <!-- TV Object -->
+      <a-entity highlight-exhibition>
+        <?php foreach ($tvs as $tv) : ?>
+          <a-entity
+          id="video-<?= $tv["id"] ?>"
+          mixin="tv"
+          geometry="primitive: plane; width: 3.5; height: 2"
+          position="<?= $tv["position"] ?>"
+          rotation="0 -90 0"
+          scale="1.2 1.2 1.2"
+          class="raycastable menu-button"
+          >
+          <a-image
+          width="3.5"
+          height="2"
+          src="#image-<?= $tv["id"] ?>"
+          transparent="true" 
+          alpha-test="0.5"
+          ></a-image>
+        </a-entity>
+        <?php endforeach;?>
+      </a-entity>
+      
       <!-- Door Object -->
       <a-entity door>
         <a-entity
@@ -203,69 +256,6 @@
             position="0 2.5 1"
             align="center"
           ></a-text>
-        </a-entity>
-      </a-entity>
-
-      <!-- TV 1 -->
-      <a-entity highlight-exhibition>
-        <a-entity
-          id="video"
-          mixin="object"
-          geometry="primitive: plane; width: 3.5; height: 2"
-          position="9.4 3 0"
-          rotation="0 -90 0"
-          scale="1.2 1.2 1.2"
-          class="raycastable menu-button"
-        >
-          <a-image
-            width="3.5"
-            height="2"
-            src="#logo"
-            transparent="true" 
-            alpha-test="0.5"
-          ></a-image>
-        </a-entity>
-      </a-entity>
-
-       <!-- TV 2 -->
-       <a-entity highlight-exhibition>
-        <a-entity
-          id="video"
-          mixin="object"
-          geometry="primitive: plane; width: 3.5; height: 2"
-          position="9.4 3 -5.5"
-          rotation="0 -90 0"
-          scale="1.2 1.2 1.2"
-          class="raycastable menu-button"
-        >
-          <a-image
-            width="3.5"
-            height="2"
-            src="#logo"
-            transparent="true" 
-            alpha-test="0.5"
-          ></a-image>
-        </a-entity>
-      </a-entity>
-
-       <!-- TV 3 -->
-       <a-entity highlight-exhibition>
-        <a-entity
-          id="video"
-          mixin="object"
-          geometry="primitive: plane; width: 3.5; height: 2"
-          position="9.4 3 5.5"
-          rotation="0 -90 0"
-          scale="1.2 1.2 1.2"
-          class="raycastable menu-button"
-        >
-          <a-image
-            width="3.5"
-            height="2"
-            src="#logo"
-            transparent="true" 
-            alpha-test="0.5"
-          ></a-image>
         </a-entity>
       </a-entity>
 
@@ -319,7 +309,7 @@
 
     <!-- WASD Button Right Below -->
     <div class="wasd-container">
-      <img src="assets/wasd1.png" class="wasd-image">
+      <img src="assets/wasd.png" class="wasd-image">
     </div>
 
     <div id="myModal" class="background">
@@ -388,6 +378,31 @@
           </div>
           <div class="footer">
             <button class="btn close" onclick="closeModalVideo('<?= $sponsor['id'] ?>')">Close</button>
+          </div>
+        </div>
+      <?php endforeach;?>
+
+      <!-- Modal for TV -->
+      <?php foreach ($tvs as $tv) : ?>
+        <div class="modal" id="modal-video-<?= $tv["id"] ?>">
+          <div class="header">
+            PI FAIR 2022
+          </div>
+          <div class="body">
+            <iframe 
+            id="youtube-<?= $tv["id"] ?>"
+            class="youtube-player"
+            width="750" 
+            height="422" 
+            src="<?= $tv["youtube"] ?>"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="footer">
+            <button class="btn close" onclick="closeModalVideo('<?= $tv['id'] ?>')">Close</button>
           </div>
         </div>
       <?php endforeach;?>
