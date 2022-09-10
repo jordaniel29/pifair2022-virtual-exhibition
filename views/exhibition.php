@@ -57,6 +57,7 @@
         <img id="floor" src="assets/checkered-exhibition.png" />
         <img id="clickme" src="assets/click-me-sm.png" />
         <img id="play" src="assets/play.png" />
+        <img id="logo" src="assets/logo2.png" />
 
         <a-mixin
           id="frame"
@@ -84,6 +85,13 @@
           material="opacity: 0.0; transparent: true"
           animation__scale="property: scale; to: 1.05 1.05 1.05; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
+        ></a-mixin>
+        <a-mixin
+          id="object"
+          geometry="primitive: plane; width: 4; height: 4"
+          material="opacity: 0.0; transparent: true"
+          animation__scale="property: scale; to: 1.4 1.4 1.4; dur: 200; startEvents: mouseenter"
+          animation__scale_reverse="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseleave"
         ></a-mixin>
       </a-assets>
 
@@ -195,6 +203,69 @@
             position="0 2.5 1"
             align="center"
           ></a-text>
+        </a-entity>
+      </a-entity>
+
+      <!-- TV 1 -->
+      <a-entity highlight-exhibition>
+        <a-entity
+          id="video"
+          mixin="object"
+          geometry="primitive: plane; width: 3.5; height: 2"
+          position="9.4 3 0"
+          rotation="0 -90 0"
+          scale="1.2 1.2 1.2"
+          class="raycastable menu-button"
+        >
+          <a-image
+            width="3.5"
+            height="2"
+            src="#logo"
+            transparent="true" 
+            alpha-test="0.5"
+          ></a-image>
+        </a-entity>
+      </a-entity>
+
+       <!-- TV 2 -->
+       <a-entity highlight-exhibition>
+        <a-entity
+          id="video"
+          mixin="object"
+          geometry="primitive: plane; width: 3.5; height: 2"
+          position="9.4 3 -5.5"
+          rotation="0 -90 0"
+          scale="1.2 1.2 1.2"
+          class="raycastable menu-button"
+        >
+          <a-image
+            width="3.5"
+            height="2"
+            src="#logo"
+            transparent="true" 
+            alpha-test="0.5"
+          ></a-image>
+        </a-entity>
+      </a-entity>
+
+       <!-- TV 3 -->
+       <a-entity highlight-exhibition>
+        <a-entity
+          id="video"
+          mixin="object"
+          geometry="primitive: plane; width: 3.5; height: 2"
+          position="9.4 3 5.5"
+          rotation="0 -90 0"
+          scale="1.2 1.2 1.2"
+          class="raycastable menu-button"
+        >
+          <a-image
+            width="3.5"
+            height="2"
+            src="#logo"
+            transparent="true" 
+            alpha-test="0.5"
+          ></a-image>
         </a-entity>
       </a-entity>
 
